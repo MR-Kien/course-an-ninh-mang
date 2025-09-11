@@ -69,19 +69,39 @@ module.exports = {
           900: "#0f172a",
         },
         violet: {
+          56: "#9333EA",
+          65: "#A855F7",
           85: "#d8b4fe",
           75: "#c084fc",
         },
+        rose: {
+          51: "#DB2777",
+          60: "#EC4899",
+        },
         azure: {
+          17: "#1F2937",
           27: "#334155",
           65: "#9ca3af",
           68: "#60a5fa",
           84: "#d1d5db",
         },
         "spring-green": {
+          36: "#16A34A",
+          30: "#059669",
           58: "#4ade80",
         },
-        "yellow-53": "#facc15",
+        red: {
+          71: "#F87171",
+        },
+        yellow: {
+          53: "#FACC15",
+          47: "#EAB308",
+        },
+        orange: {
+          40: "#CA8A04",
+          48: "#EA580C",
+          53: "#F97316",
+        },
         "red-71": "#f87171",
         "rose-70": "#f472b6",
         brand: {
@@ -120,6 +140,7 @@ module.exports = {
         'lozo-gradient': 'linear-gradient(135deg, #111827 0%, #581C87 50%, #4C1D95 100%)',
         'lozo-button': 'linear-gradient(90deg, #A855F7 0%, #EC4899 100%)',
         'lozo-shield': 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       fontFamily: {
         'roboto': ['Roboto', 'system-ui', 'sans-serif'],
