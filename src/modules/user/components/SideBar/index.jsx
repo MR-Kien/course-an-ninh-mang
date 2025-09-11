@@ -1,5 +1,6 @@
-import { Lock, CheckCircle } from 'lucide-react';
-
+import { Lock, CheckCircle} from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ENDPOINTS } from '../../../../routes/endPoints';
 // interface LessonProps {
 //   title: string;
 //   description: string;
@@ -20,13 +21,13 @@ function LessonItem({ title, description, duration, isCompleted, isLocked, isAct
     return <CheckCircle className="w-5 h-5 text-green-500" />;
   };
 
-  return (
-    <div className={`p-4 rounded-xl border transition-all ${
+  const content = (
+    <div className={`p-4 rounded-xl border transition-all cursor-pointer ${
       isActive 
         ? 'border-purple-600 bg-gradient-primary-subtle' 
         : 'border-slate-500 bg-slate-600/50'
     } ${isLocked ? 'opacity-60' : ''}`}>
-      <div className="flex items-start space-x-3">
+      <div className="flex items-start space-x-3 mt-2">
         <div className="mt-1">{getStatusIcon()}</div>
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between mb-2">
@@ -48,6 +49,7 @@ function LessonItem({ title, description, duration, isCompleted, isLocked, isAct
       </div>
     </div>
   );
+  return isLocked ? <Link to={ENDPOINTS.USER.OOPS} className='block'>{content}</Link> : content ;
 }
 
 export function Sidebar() {

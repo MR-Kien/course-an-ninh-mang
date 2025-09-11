@@ -1,3 +1,5 @@
+import { ENDPOINTS } from "../../../../routes/endPoints";
+import { Link } from "react-router-dom";
 export default function MainContent({ totalModules, completedModules, progressPercentage = 0, remainingModules = [] }) {
   return (
     <main className="flex-1 p-24">
@@ -68,9 +70,11 @@ export default function MainContent({ totalModules, completedModules, progressPe
               </div>
 
               {/* Continue Learning Button */}
+            <Link to={ENDPOINTS.USER.DEMO}>
               <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium px-8 py-3 rounded-xl transition-all duration-200 transform hover:scale-105">
                 Tiếp tục học
               </button>
+            </Link>
             </div>
           </div>
         </main>

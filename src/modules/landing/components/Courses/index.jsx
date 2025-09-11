@@ -7,6 +7,8 @@ import pic3 from "../../../../assets/images/pic3.png";
 import pic4 from "../../../../assets/images/pic4.png";
 import pic5 from "../../../../assets/images/pic5.png";
 import pic6 from "../../../../assets/images/pic6.png";
+import { Link } from "react-router-dom";
+import { ENDPOINTS } from "../../../../routes/endPoints";
 // import { Star } from "lucide-react";
 // interface CourseCardProps {
 //   image: string;
@@ -162,10 +164,12 @@ export default function Courses() {
 
         {/* View All Button */}
         <div className="text-center">
+          <Link to={ENDPOINTS.USER.COURSES} className="text-lg font-semibold text-white hover:text-brand-primary transition-colors">
           <Button variant="outline" className="border-white border-4 !bg-white/10 backdrop-blur-sm !text-white hover:!bg-white/20 px-8 py-6 text-lg font-semibold group">
             Xem tất cả khóa học
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
+          </Link>
         </div>
       </div>
     </section>

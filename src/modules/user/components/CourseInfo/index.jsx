@@ -1,5 +1,6 @@
 import { Star, CheckCircle, ExternalLink, Download, FileText } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
+import { ENDPOINTS } from '../../../../routes/endPoints';
 function CourseDetails() {
   return (
     <div className="bg-[#1e293b] rounded-2xl border border-slate-600 p-6 shadow-sm mb-4">
@@ -103,8 +104,10 @@ function LearningProgress() {
       </div>
 
       <button className="w-full mt-6 py-4 px-6 bg-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center">
-        <FileText className="w-5 h-5 mr-2" />
-        Làm bài kiểm tra
+        <Link to={ENDPOINTS.USER.NOTEST} className='flex items-center'>
+          <FileText className="w-5 h-5 mr-2" />
+          Làm bài kiểm tra
+        </Link>
       </button>
     </div>
   );

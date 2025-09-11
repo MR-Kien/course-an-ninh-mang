@@ -1,5 +1,6 @@
 import { Crown, ArrowRight, Lightbulb } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
+import { ENDPOINTS } from '../../../../routes/endPoints';
 export default function CallToAction() {
   return (
     <div>
@@ -14,9 +15,12 @@ export default function CallToAction() {
             </button>
 
             {/* Secondary Button */}
-            <button className="px-4 md:px-6 py-2.5 md:py-3 bg-[#334155] rounded-xl text-white font-semibold text-sm md:text-base font-roboto hover:bg-lozo-tertiary/80 transition-colors">
-            Quay lại module miễn phí
-            </button>
+            <Link to={ENDPOINTS.USER.DEMO} className='mx-auto'>
+              <button className="px-4 md:px-6 py-2.5 md:py-3 bg-[#334155] rounded-xl text-white font-semibold text-sm md:text-base font-roboto hover:bg-lozo-tertiary/80 transition-colors">
+                Quay lại module miễn phí
+              </button>
+            </Link>
+
         </div>
         </div>
 
