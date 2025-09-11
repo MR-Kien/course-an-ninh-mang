@@ -145,18 +145,21 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <FeatureCard
                 icon={BookOpen}
+                iconGradient="bg-gradient-to-r from-purple-500 to-pink-500"
                 title="Khám phá khóa học"
                 description="Tìm hiểu các khóa học mới nhất"
                 gradient="bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/30"
               />
               <FeatureCard
                 icon={Target}
+                iconGradient="bg-gradient-to-r from-blue-500 to-cyan-500"
                 title="Phòng Lab"
                 description="Luyện tập với bài tập thực tế"
                 gradient="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/30"
               />
               <FeatureCard
                 icon={Shield}
+                iconGradient="bg-gradient-to-r from-orange-500 to-red-500"
                 title="Thử thách CTF"
                 description="Tham gia các cuộc thi CTF"
                 gradient="bg-gradient-to-br from-orange-900/30 to-red-900/30 border border-orange-500/30"

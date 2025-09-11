@@ -15,5 +15,7 @@ export const ENDPOINTS = Object.freeze({
     CER: "/user/cer",
     FLASHCARD: "/user/flashcard",
     COURSES: "/user/courses",
+    PREMIUM: "/user/premium",
+    SAMPLETEST: "/user/sample-test",
   },
 });

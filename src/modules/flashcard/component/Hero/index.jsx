@@ -1,106 +1,51 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { CheckCircle, Target } from "lucide-react";
-
-/**
- * HeroSection sử dụng MUI Card + sx để replicate Tailwind styles:
- * - responsive padding (py-16 px-6 tương đương)
- * - gradient text cho "Flashcard"
- * - Card với gradient background, border, backdrop-blur và hover lift
- */
+import { CheckCircle, Target, Brain, Zap } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <Box component="section" sx={{ py: 8, px: { xs: 3, md: 6 } }}>
-      <Box sx={{ maxWidth: 1024, mx: "auto", textAlign: "center", mb: 6 }}>
-        <Typography
-          component="h1"
-          sx={{
-            fontWeight: 700,
-            lineHeight: 1.05,
-            fontSize: { xs: "2.25rem", md: "3rem" }, // text-4xl -> text-5xl
-          }}
-        >
-          <Box component="span" sx={{ color: "#fff" }}>
-            Học lý thuyết với{" "}
-          </Box>
-
-          {/* Gradient text */}
-          <Box
-            component="span"
-            sx={{
-              background: "linear-gradient(90deg,#a78bfa 0%,#fb7185 50%,#a78bfa 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
-          >
+    <section className="py-16 px-6">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          <span className="text-white">Học lý thuyết với </span>
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
             Flashcard
-          </Box>
-        </Typography>
+          </span>
+        </h1>
 
-        <Typography sx={{ color: "rgba(255,255,255,0.75)", mt: 2, fontSize: "1.125rem", maxWidth: 720, mx: "auto" }}>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
           Nắm vững kiến thức an ninh mạng qua các thẻ học tương tác với hiệu ứng đẹp mắt
-        </Typography>
-      </Box>
+        </p>
 
-      {/* Card highlight */}
-      <Box sx={{ maxWidth: 920, mx: "auto" }}>
-        <Card
-          elevation={0}
-          sx={{
-            mx: "auto",
-            maxWidth: { xs: "100%", md: 768 },
-            background:
-              "linear-gradient(90deg, rgba(88,28,135,0.12) 0%, rgba(219,39,119,0.10) 100%)",
-            border: "1px solid rgba(139,92,246,0.12)",
-            backdropFilter: "blur(6px)",               // glass effect
-            WebkitBackdropFilter: "blur(6px)",
-            boxShadow: "0 6px 24px rgba(2,6,23,0.5)",
-            borderRadius: 2,
-            transition: "transform .24s ease, box-shadow .24s ease",
-            "&:hover": {
-              transform: "translateY(-6px)",
-              boxShadow: "0 18px 36px rgba(2,6,23,0.7)",
-            },
-          }}
-        >
-          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 2, mb: 2 }}>
-              <Box sx={{ width: 20, height: 20, color: "#fbbf24", fontSize: 18 }}>⚡</Box>
-              <Typography sx={{ fontWeight: 700, color: "#fff", fontSize: "1.125rem" }}>
-                Phương pháp học hiệu quả
-              </Typography>
-              <Box sx={{ width: 20, height: 20, color: "#fbbf24", fontSize: 18 }}>⚡</Box>
-            </Box>
+        {/* Feature highlight card */}
+        <div className="max-w-3xl mx-auto border-purple-500/30 bg-gradient-to-r from-purple-900/30 via-purple-800/20 to-pink-900/30 backdrop-blur-sm rounded-xl border p-1 shadow-lg">
+          <div className="p-8 space-y-6">
+            <div className="flex items-center justify-center gap-3">
+              <Zap className="w-5 h-5 text-yellow-400"/>
+              <h3 className="text-xl font-bold text-white">Phương pháp học hiệu quả</h3>
+              <Zap className="w-5 h-5 text-yellow-400"/>
+            </div>
 
-            <Typography sx={{ color: "rgba(255,255,255,0.78)", mb: 2 }}>
+            <p className="text-gray-300 leading-relaxed">
               Flashcard giúp bạn ghi nhớ kiến thức lâu dài thông qua việc lặp lại có khoảng cách. 
               Mỗi thẻ được thiết kế để tối ưu hóa quá trình học tập và củng cố kiến thức an ninh mạng.
-            </Typography>
+            </p>
 
-            <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 3, mt: 1 }}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#c4b5fd" }}>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex items-center gap-2 text-purple-300">
                 <CheckCircle className="w-4 h-4" />
-                <Typography component="span" sx={{ fontSize: 14 }}>Học theo tiến độ cá nhân</Typography>
-              </Box>
-
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#fb9ab0" }}>
-                <Box component="span" sx={{ fontSize: 14 }}>🧠</Box>
-                <Typography component="span" sx={{ fontSize: 14 }}>Tăng cường trí nhớ</Typography>
-              </Box>
-
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1, color: "#93c5fd" }}>
+                Học theo tiến độ cá nhân
+              </div>
+              <div className="flex items-center gap-2 text-pink-300">
+                <Brain className="w-4 h-4"/>
+                Tăng cường trí nhớ
+              </div>
+              <div className="flex items-center gap-2 text-blue-300">
                 <Target className="w-4 h-4" />
-                <Typography component="span" sx={{ fontSize: 14 }}>Kiến thức thực tế</Typography>
-              </Box>
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
-    </Box>
+                Kiến thức thực tế
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

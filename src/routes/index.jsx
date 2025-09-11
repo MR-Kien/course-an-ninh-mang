@@ -106,6 +106,18 @@ const coursePage = {
   title: `Courses | ${WEB_NAME}`,
   Layout: LandingLayout,
 };
+const premiumPage = {
+  path: ENDPOINTS.USER.PREMIUM,
+  component: lazy(() => delayRoute()(import("../modules/premium/features"))),
+  title: `Premium | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const sampleTestPage = {
+  path: ENDPOINTS.USER.SAMPLETEST,
+  component: lazy(() => delayRoute()(import("../modules/sampleTest/features"))),
+  title: `Sample Test | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
 
 const loginPage = {
   path: ENDPOINTS.AUTH.LOGIN,
@@ -124,7 +136,7 @@ const forgotPasswordPage = {
 
 // Các trang khác sẽ được thêm vào đây
 export const privateRouteData = [];
-export const publicRoutesData = [landingPage, loginPage, forgotPasswordPage, coursePage, courseDemoPage, oopsPage, courseManamentPage, noTestPage, coursePaymentPage, courseCerPage, flashcardPage];
+export const publicRoutesData = [landingPage, loginPage, forgotPasswordPage, coursePage, courseDemoPage, oopsPage, courseManamentPage, noTestPage, coursePaymentPage, courseCerPage, flashcardPage, premiumPage, sampleTestPage];
 
 // Improved route rendering function
 const renderRoutes = (routes, isPrivate = false) => {
