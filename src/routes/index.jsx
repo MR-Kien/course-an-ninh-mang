@@ -51,6 +51,62 @@ const landingPage = {
   component: lazy(() => delayRoute()(import("../modules/landing/features"))),
   title: WEB_NAME,
 };
+const courseDemoPage = {
+  path: ENDPOINTS.USER.DEMO,
+  component: lazy(() => delayRoute()(import("../modules/user/features"))),
+  title: `Demo | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const oopsPage = {
+  path: ENDPOINTS.USER.OOPS,
+  component: lazy(() => delayRoute()(import("../modules/oops/features"))),
+  title: `Oops | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const courseManamentPage = {
+  path: ENDPOINTS.USER.MANAMENT,
+  component: lazy(() => delayRoute()(import("../modules/manament/features"))),
+  title: `Manament | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const noTestPage = {
+  path: ENDPOINTS.USER.NOTEST,
+  component: lazy(() => delayRoute()(import("../modules/notest/features"))),
+  title: `Not Allowed Test | ${WEB_NAME}`,
+  Layout: LandingLayout,
+
+};
+// const courseTestPage = {
+//   path: ENDPOINTS.USER.TEST,
+//   component: lazy(() => delayRoute()(import("../modules/test/features"))),
+//   title: `Test | ${WEB_NAME}`,
+//   Layout: LandingLayout,
+// };
+const coursePaymentPage = {
+  path: ENDPOINTS.USER.PAYMENT,
+  component: lazy(() => delayRoute()(import("../modules/payment/features"))),
+  title: `Payment | ${WEB_NAME}`,
+  Layout: LandingLayout,
+}
+const courseCerPage = {
+  path: ENDPOINTS.USER.CER,
+  component: lazy(() => delayRoute()(import("../modules/cer/features"))),
+  title: `Certificate | ${WEB_NAME}`,
+  Layout: LandingLayout,
+}
+const flashcardPage = {
+  path: ENDPOINTS.USER.FLASHCARD,
+  component: lazy(() => delayRoute()(import("../modules/flashcard/features"))),
+  title: `Flashcard | ${WEB_NAME}`,
+  Layout: LandingLayout,
+}
+const coursePage = {
+  path: ENDPOINTS.USER.COURSES,
+  component: lazy(() => delayRoute()(import("../modules/courses/features"))),
+  title: `Courses | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+
 const loginPage = {
   path: ENDPOINTS.AUTH.LOGIN,
   component: lazy(() => delayRoute()(import("../modules/auth/features/login"))),
@@ -68,7 +124,7 @@ const forgotPasswordPage = {
 
 // Các trang khác sẽ được thêm vào đây
 export const privateRouteData = [];
-export const publicRoutesData = [landingPage, loginPage, forgotPasswordPage];
+export const publicRoutesData = [landingPage, loginPage, forgotPasswordPage, coursePage, courseDemoPage, oopsPage, courseManamentPage, noTestPage, coursePaymentPage, courseCerPage, flashcardPage];
 
 // Improved route rendering function
 const renderRoutes = (routes, isPrivate = false) => {

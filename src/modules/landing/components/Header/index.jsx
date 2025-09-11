@@ -3,24 +3,22 @@ import Button from "@mui/material/Button";
 import { LogIn, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ENDPOINTS } from "@/routes/endPoints";
-import AIchat from "../../assets/icons/Group.png";
+import AIchat from "../../../../assets/icons/Group.png";
 
 export default function Header() {
   return (
-    <header className="border-b border-white/10 bg-black/20 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black/20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 lg:px-24">
-        <div className="flex items-center justify-start h-18 py-4">
+        <div className="flex items-center justify-between h-18 py-4">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Link to={ENDPOINTS.INDEX} className="flex items-center">
-                <Shield className="h-8 w-8 text-[#a10ea4]" strokeWidth={2} />
-                <span className="text-xl font-bold text-white">LozoAcademy</span>
-            </Link>
+            <Shield className="h-8 w-8 text-[#a10ea4]" strokeWidth={2} />
+            <span className="text-xl font-bold text-white">LozoAcademy</span>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 ml-60">
-            <a href="/#courses" className="text-white/80 hover:text-white font-bold text-base transition-colors">
+          <nav className="hidden lg:flex items-center space-x-8">
+            <a href="#courses" className="text-white/80 hover:text-white font-bold text-base transition-colors">
               Khóa học
             </a>
             <a href="#lab" className="text-white/80 hover:text-white font-bold text-base transition-colors">
@@ -38,7 +36,7 @@ export default function Header() {
           </nav>
 
           {/* Auth Buttons */}
-          {/* <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <Link to={ENDPOINTS.USER.DEMO}>
               <Button className="flex items-center space-x-2 !text-white/80 hover:!text-white font-bold text-base transition-colors">
                 <LogIn className="h-6 w-6 pr-1" />
@@ -50,7 +48,7 @@ export default function Header() {
                 Đăng ký
               </Button>
             </Link>
-          </div> */}
+          </div>
 
           {/* Mobile menu button */}
           {/* <button className="lg:hidden text-white">

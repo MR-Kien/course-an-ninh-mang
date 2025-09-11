@@ -1,29 +1,165 @@
+import animate from "tailwindcss-animate";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./client/**/*.{ts,tsx}",
     "index.html",
     "node_modules/flowbite-react/**/*.js",
     "node_modules/flowbite/**/*.js",
   ],
   theme: {
-    extend: {
-      keyframes: {
-        slide: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-        slideup: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-      },
-      animation: {
-        slide: "slide 5s linear infinite",
-        slideup: "slide-up 0.5s ease-out forwards",
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
     },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
+        slate: {
+          850: "#1e293b",
+          875: "#1a202c",
+          900: "#0f172a",
+        },
+        violet: {
+          85: "#d8b4fe",
+          75: "#c084fc",
+        },
+        azure: {
+          27: "#334155",
+          65: "#9ca3af",
+          68: "#60a5fa",
+          84: "#d1d5db",
+        },
+        "spring-green": {
+          58: "#4ade80",
+        },
+        "yellow-53": "#facc15",
+        "red-71": "#f87171",
+        "rose-70": "#f472b6",
+        brand: {
+          primary: "#A10EA4",
+          secondary: "#E310D5",
+        },
+        lozo: {
+          purple: {
+            100: "#A10EA4",
+            200: "#A855F7",
+            300: "#C084FC",
+            400: "#EC4899",
+          },
+          pink: "#E310D5",
+          dark: {
+            primary: "#5C065E",
+            secondary: "#281F28",
+            tertiary: "#4B1447",
+          },
+          gray: {
+              100: "#D1D5DB",
+              200: "#9CA3AF",
+              300: "rgba(255, 255, 255, 0.05)",
+              400: "rgba(255, 255, 255, 0.10)",
+              500: "rgba(0, 0, 0, 0.20)",
+            },
+          green: "#4ADE80",
+          blue: "#60A5FA",
+        },
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(90deg, hsl(var(--purple-600)) 0%, hsl(var(--pink-600)) 100%)',
+        'gradient-secondary': 'linear-gradient(90deg, hsl(var(--orange-500)) 0%, hsl(var(--red-500)) 100%)',
+        'gradient-primary-subtle': 'linear-gradient(90deg, rgba(147, 51, 234, 0.30) 0%, rgba(219, 39, 119, 0.20) 100%)',
+        'gradient-card': 'linear-gradient(90deg, hsl(var(--slate-600)) 0%, hsl(var(--slate-700)) 100%)',
+        'lozo-gradient': 'linear-gradient(135deg, #111827 0%, #581C87 50%, #4C1D95 100%)',
+        'lozo-button': 'linear-gradient(90deg, #A855F7 0%, #EC4899 100%)',
+        'lozo-shield': 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'system-ui', 'sans-serif'],
+      },
+    },
+    borderRadius: {
+      lg: "var(--radius)",
+      md: "calc(var(--radius) - 2px)",
+      sm: "calc(var(--radius) - 4px)",
+      xl: "1rem",
+      "2xl": "1.5rem",
+    },
+    keyframes: {
+      slide: {
+        "0%": { transform: "translateX(0%)" },
+        "100%": { transform: "translateX(-50%)" },
+      },
+      slideup: {
+        "0%": { transform: "translateY(20px)", opacity: "0" },
+        "100%": { transform: "translateY(0)", opacity: "1" },
+      },
+      "accordion-down": {
+        from: { height: "0" },
+        to: { height: "var(--radix-accordion-content-height)" },
+      },
+      "accordion-up": {
+        from: { height: "var(--radix-accordion-content-height)" },
+        to: { height: "0" },
+      },
+    },
+    animation: {
+      slide: "slide 5s linear infinite",
+      slideup: "slide-up 0.5s ease-out forwards",
+      "accordion-down": "accordion-down 0.2s ease-out",
+      "accordion-up": "accordion-up 0.2s ease-out",
+    },
   },
-  plugins: [],
+
+  plugins: [
+    animate
+  ],
   mode: "jit",
 };
