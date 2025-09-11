@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import WebFont from "webfontloader";
 import "antd/dist/reset.css";
 import "./index.css";
+// import "./global.css";
 
 WebFont.load({ google: { families: ["Roboto:300,400,500,600,700,800,900"] } });
 
