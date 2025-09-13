@@ -1,6 +1,17 @@
 // import { Button } from "../../components/ui/button";
 import Button from "@mui/material/Button";
-import { ArrowRight, Clock, Star, Shield, Bug, Globe, Eye, Smartphone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ENDPOINTS } from "../../../../routes/endPoints";
+import {
+  ArrowRight,
+  Clock,
+  Star,
+  Shield,
+  Bug,
+  Globe,
+  Eye,
+  Smartphone,
+} from "lucide-react";
 import pic1 from "../../../../assets/images/pic1.jpg";
 import pic2 from "../../../../assets/images/pic2.png";
 import pic3 from "../../../../assets/images/pic3.png";
@@ -25,14 +36,20 @@ import pic12 from "../../../../assets/images/pic12.png";
 //   rating: string;
 // }
 
-const CourseCard = ({ image, level, levelIcon: LevelIcon, title, description, tags, duration, rating }) => (
+const CourseCard = ({
+  image,
+  level,
+  levelIcon: LevelIcon,
+  title,
+  description,
+  tags,
+  duration,
+  rating,
+  id,
+}) => (
   <div className="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm overflow-hidden hover:border-brand-primary/30 transition-all duration-300">
     <div className="relative h-48 overflow-hidden">
-      <img 
-        src={image} 
-        alt={title} 
-        className="w-full h-full object-cover"
-      />
+      <img src={image} alt={title} className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
       {/* <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" /> */}
       <div className="absolute top-4 left-4 z-20">
@@ -42,24 +59,25 @@ const CourseCard = ({ image, level, levelIcon: LevelIcon, title, description, ta
         </div>
       </div>
     </div>
-    
+
     <div className="p-6 space-y-4">
       <h3 className="text-xl font-bold text-white group-hover:text-brand-primary transition-colors">
         {title}
       </h3>
-      
-      <p className="text-white/70 leading-relaxed">
-        {description}
-      </p>
-      
+
+      <p className="text-white/70 leading-relaxed">{description}</p>
+
       <div className="flex flex-wrap gap-2">
         {tags.map((tag, index) => (
-          <span key={index} className="px-3 py-1 text-sm rounded-[10px] border border-brand-primary/30 bg-brand-primary/20 text-brand-primary">
+          <span
+            key={index}
+            className="px-3 py-1 text-sm rounded-[10px] border border-brand-primary/30 bg-brand-primary/20 text-brand-primary"
+          >
             {tag}
           </span>
         ))}
       </div>
-      
+
       <div className="flex items-center justify-between text-sm text-white/70">
         <div className="flex items-center space-x-1">
           <Clock className="h-4 w-4" />
@@ -70,11 +88,13 @@ const CourseCard = ({ image, level, levelIcon: LevelIcon, title, description, ta
           <span>{rating}</span>
         </div>
       </div>
-      
-      <Button className="w-full bg-gradient-to-r from-[#5C065E] to-brand-secondary hover:from-[#5C065E]/90 hover:to-brand-secondary/90 !text-white font-semibold group">
-        Bắt đầu khóa học
-        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-      </Button>
+
+      <Link to={`/user/demo/${id}`}>
+        <Button className="w-full bg-gradient-to-r from-[#5C065E] to-brand-secondary hover:from-[#5C065E]/90 hover:to-brand-secondary/90 !text-white font-semibold group">
+          Bắt đầu khóa học
+          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+        </Button>
+      </Link>
     </div>
   </div>
 );
@@ -82,125 +102,149 @@ const CourseCard = ({ image, level, levelIcon: LevelIcon, title, description, ta
 export default function Courses() {
   const courses = [
     {
+      id: 1,
       image: pic1,
       level: "Cơ bản",
       levelIcon: Shield,
       title: "An ninh mạng cơ bản",
-      description: "Học các nguyên tắc cơ bản về an ninh mạng, bao gồm cảnh quan mối đe dọa, nguyên tắc bảo mật và chiến lược phòng thủ cơ bản.",
+      description:
+        "Học các nguyên tắc cơ bản về an ninh mạng, bao gồm cảnh quan mối đe dọa, nguyên tắc bảo mật và chiến lược phòng thủ cơ bản.",
       tags: ["Network Security", "Basic Concepts"],
       duration: "8 tuần",
-      rating: "4.8"
+      rating: "4.8",
     },
     {
+      id: 2,
       image: pic2,
       level: "Trung cấp",
       levelIcon: Bug,
       title: "Ethical Hacking cơ bản",
-      description: "Thành thạo nghệ thuật ethical hacking với các kỹ thuật penetration testing thực hành và đánh giá lỗ hổng bảo mật.",
+      description:
+        "Thành thạo nghệ thuật ethical hacking với các kỹ thuật penetration testing thực hành và đánh giá lỗ hổng bảo mật.",
       tags: ["Penetration Testing", "Ethical Hacking"],
       duration: "12 tuần",
-      rating: "4.9"
+      rating: "4.9",
     },
     {
+      id: 3,
       image: pic3,
       level: "Nâng cao",
       levelIcon: Eye,
       title: "Dịch ngược Mã nguồn",
-      description: "Rèn luyện kỹ năng với các thử thách Capture The Flag bao gồm mật mã học, reverse engineering và nhiều hơn nữa.",
+      description:
+        "Rèn luyện kỹ năng với các thử thách Capture The Flag bao gồm mật mã học, reverse engineering và nhiều hơn nữa.",
       tags: ["Malware Analysis", "Reverse Engineering"],
       duration: "Tự học",
-      rating: "4.7"
+      rating: "4.7",
     },
     {
+      id: 4,
       image: pic4,
       level: "Trung cấp",
       levelIcon: Globe,
       title: "Bảo mật ứng dụng Web",
-      description: "Tìm hiểu sâu về bảo mật ứng dụng web, OWASP Top 10, và các kỹ thuật tấn công phòng thủ hiện đại.",
+      description:
+        "Tìm hiểu sâu về bảo mật ứng dụng web, OWASP Top 10, và các kỹ thuật tấn công phòng thủ hiện đại.",
       tags: ["OWASP Top 10", "SQL Injection"],
       duration: "10 tuần",
-      rating: "4.8"
+      rating: "4.8",
     },
     {
+      id: 5,
       image: pic5,
       level: "Nâng cao",
       levelIcon: Eye,
       title: "Điều tra số (Digital Forensics)",
-      description: "Học cách thu thập, phân tích và bảo toàn bằng chứng số trong các cuộc điều tra an ninh mạng.",
+      description:
+        "Học cách thu thập, phân tích và bảo toàn bằng chứng số trong các cuộc điều tra an ninh mạng.",
       tags: ["Digital Investigation", "Evidence Collection"],
       duration: "14 tuần",
-      rating: "4.9"
+      rating: "4.9",
     },
     {
+      id: 6,
       image: pic6,
       level: "Trung cấp",
       levelIcon: Smartphone,
       title: "Bảo mật di động",
-      description: "Khám phá bảo mật cho các ứng dụng di động Android và iOS, bao gồm phân tích tĩnh và động.",
+      description:
+        "Khám phá bảo mật cho các ứng dụng di động Android và iOS, bao gồm phân tích tĩnh và động.",
       tags: ["Mobile Android", "Mobile iOS"],
       duration: "8 tuần",
-      rating: "4.6"
+      rating: "4.6",
     },
     {
+      id: 7,
       image: pic7,
       level: "Nâng cao",
       levelIcon: Smartphone,
       title: "Network Security Advanced",
-      description: "Khóa học nâng cao về bảo mật mạng, firewall configuration, IDS/IPS và network monitoring chuyên sâu.",
+      description:
+        "Khóa học nâng cao về bảo mật mạng, firewall configuration, IDS/IPS và network monitoring chuyên sâu.",
       tags: ["Firewall", "IDS/IPS"],
       duration: "16 tuần",
-      rating: "4.8"
+      rating: "4.8",
     },
     {
-      image: pic8, 
+      id: 8,
+      image: pic8,
       level: "Nâng cao",
       levelIcon: Bug,
       title: "Cryptography & Encryption",
-      description: "Tìm hiểu sâu về mật mã học hiện đại, thuật toán mã hóa, key management và cryptographic protocols.",
+      description:
+        "Tìm hiểu sâu về mật mã học hiện đại, thuật toán mã hóa, key management và cryptographic protocols.",
       tags: ["Encryption", "Key Management"],
       duration: "12 tuần",
-      rating: "4.9"
+      rating: "4.9",
     },
     {
-      image: pic9,  
+      id: 9,
+      image: pic9,
       level: "Trung cấp",
       levelIcon: Globe,
       title: "Cloud Security Fundamentals",
-      description: "Học bảo mật cloud computing trên AWS, Azure, GCP với IAM, network security và compliance.",
+      description:
+        "Học bảo mật cloud computing trên AWS, Azure, GCP với IAM, network security và compliance.",
       tags: ["AWS Security", "Cloud IAM"],
       duration: "10 tuần",
-      rating: "4.7"
+      rating: "4.7",
     },
     {
-      image: pic10,  
+      id: 10,
+      image: pic10,
       level: "Trung cấp",
       levelIcon: Globe,
       title: "IoT Security Testing",
-      description: "Bảo mật cho Internet of Things: firmware analysis, hardware hacking và IoT protocol security.",
+      description:
+        "Bảo mật cho Internet of Things: firmware analysis, hardware hacking và IoT protocol security.",
       tags: ["IoT Protocols", "Hardware Security"],
       duration: "14 tuần",
-      rating: "4.6"
-    },        
+      rating: "4.6",
+    },
     {
-      image: pic11,  
+      id: 11,
+      image: pic11,
       level: "Trung cấp",
       levelIcon: Globe,
       title: "Social Engineering Defense",
-      description: "Học cách nhận diện và phòng chống các cuộc tấn công social engineering, phishing và human factor attacks.",
+      description:
+        "Học cách nhận diện và phòng chống các cuộc tấn công social engineering, phishing và human factor attacks.",
       tags: ["Phishing Defense", "Awareness Training"],
       duration: "6 tuần",
-      rating: "4.5"
-    },   
+      rating: "4.5",
+    },
     {
-      image: pic12,  
+      id: 12,
+      image: pic12,
       level: "Trung cấp",
       levelIcon: Globe,
       title: "Incident Response & Recovery",
-      description: "Xây dựng khả năng phản ứng sự cố, disaster recovery planning và business continuity management.",
+      description:
+        "Xây dựng khả năng phản ứng sự cố, disaster recovery planning và business continuity management.",
       tags: ["Incident Management", "Recovery Planning"],
       duration: "12 tuần",
-      rating: "4.8"
-    }, 
+      rating: "4.8",
+    },
   ];
 
   return (
@@ -215,7 +259,8 @@ export default function Courses() {
             </span>
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Khám phá 12 khóa học chuyên sâu về cybersecurity từ cơ bản đến nâng cao, được thiết kế bởi các chuyên gia hàng đầu trong ngành
+            Khám phá 12 khóa học chuyên sâu về cybersecurity từ cơ bản đến nâng
+            cao, được thiết kế bởi các chuyên gia hàng đầu trong ngành
           </p>
         </div>
 
@@ -228,19 +273,21 @@ export default function Courses() {
 
         {/* Stats Section */}
         <div className="mt-16 p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-                { number: "50K+", label: "Học viên tích cực" },
-                { number: "200+", label: "Khóa học chuyên sâu" },
-                { number: "95%", label: "Tỷ lệ có việc làm" },
-                { number: "24/7", label: "Hỗ trợ học tập" }
+              { number: "50K+", label: "Học viên tích cực" },
+              { number: "200+", label: "Khóa học chuyên sâu" },
+              { number: "95%", label: "Tỷ lệ có việc làm" },
+              { number: "24/7", label: "Hỗ trợ học tập" },
             ].map((stat, index) => (
-                <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-brand-primary mb-2">{stat.number}</div>
-                <div className="text-white/70 text-base">{stat.label}</div>
+              <div key={index} className="text-center">
+                <div className="text-3xl font-bold text-brand-primary mb-2">
+                  {stat.number}
                 </div>
+                <div className="text-white/70 text-base">{stat.label}</div>
+              </div>
             ))}
-            </div>
+          </div>
         </div>
       </div>
     </section>

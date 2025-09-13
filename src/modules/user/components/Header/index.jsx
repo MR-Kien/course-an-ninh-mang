@@ -1,6 +1,6 @@
-import { Search, Bell, Settings, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { ENDPOINTS } from '../../../../routes/endPoints';
+import { Search, Bell, Settings, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ENDPOINTS } from "../../../../routes/endPoints";
 export function Header() {
   return (
     <header className="bg-slate-700 border-b border-slate-600 shadow-sm">
@@ -17,21 +17,33 @@ export function Header() {
                 <h1 className="text-xl font-bold text-white">LozoAcademy</h1>
               </Link>
             </div>
-            
+
             {/* Navigation */}
             <nav className="flex items-center space-x-6 ml-6">
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+              <Link
+                to={ENDPOINTS.USER.COURSES}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
                 Khóa học
-              </a>
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+              </Link>
+              <Link
+                to={ENDPOINTS.USER.LABS}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
                 Phòng lab
-              </a>
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+              </Link>
+              <Link
+                to={ENDPOINTS.USER.CFT}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
                 CTF
-              </a>
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+              </Link>
+              <Link
+                to={ENDPOINTS.USER.ABOUT}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
                 Giới thiệu
-              </a>
+              </Link>
             </nav>
           </div>
 
@@ -60,8 +72,16 @@ export function Header() {
             {/* User Profile */}
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-500 rounded-xl flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <span className="text-white text-sm">User</span>

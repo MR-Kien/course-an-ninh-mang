@@ -1,45 +1,27 @@
-import { ChevronLeft, Check, Smartphone, Building2, Shield } from "lucide-react";
+import {
+  ChevronLeft,
+  Check,
+  Smartphone,
+  Building2,
+  Shield,
+} from "lucide-react";
 // import { Link } from "react-router-dom";
 // import { ENDPOINTS } from "../../../../routes/endPoints";
+import Header from "../../../components/Header/Header";
 export default function Payment() {
   return (
     <div className="min-h-screen bg-lozo-gradient">
       {/* Header */}
-      <header className="border-b border-[#9ca3af] bg-gradient-to-r from-[#101322] to-[#46166b] backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-8">
-          <div className="flex h-16 items-center justify-start gap-[300px]">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                <Shield className="h-8 w-8 text-[#a10ea4]" strokeWidth={2} />
-              </div>
-              <h1 className="text-xl font-bold text-white">LozoAcademy</h1>
-            </div>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              <a href="#" className="text-[#d1d5db] hover:text-white transition-colors">
-                Khóa học
-              </a>
-              <a href="#" className="text-[#d1d5db] hover:text-white transition-colors">
-                Phòng lab
-              </a>
-              <a href="#" className="text-[#d1d5db] hover:text-white transition-colors">
-                CTF
-              </a>
-              <a href="#" className="text-[#d1d5db] hover:text-white transition-colors">
-                Giới thiệu
-              </a>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Breadcrumb */}
       <div className="mx-auto max-w-7xl px-8 py-6">
         <div className="flex items-center gap-2 text-sm">
           <ChevronLeft className="h-4 w-4 text-[#9ca3af]" />
-          <a href="#" className="text-[#9ca3af] hover:text-white transition-colors">
+          <a
+            href="#"
+            className="text-[#9ca3af] hover:text-white transition-colors"
+          >
             Chọn gói học
           </a>
           <span className="text-[#9ca3af]">/</span>
@@ -54,8 +36,10 @@ export default function Payment() {
           <div className="lg:col-span-2 space-y-6">
             {/* Customer Information */}
             <div className="rounded-2xl border border-[#4b2d68] bg-gradient-to-r from-[#1e1436] to-[#46166a] backdrop-blur-sm p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Thông tin khách hàng</h2>
-              
+              <h2 className="text-xl font-bold text-white mb-4">
+                Thông tin khách hàng
+              </h2>
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm text-[#d1d5db] mb-2">
@@ -67,7 +51,7 @@ export default function Payment() {
                     className="w-full rounded-xl border border-[#4b2d68] bg-[#392154] px-4 py-3 text-white placeholder:text-lozo-gray-200 focus:outline-none focus:ring-2 focus:ring-lozo-purple-200"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm text-[#d1d5db] mb-2">
                     Email *
@@ -78,7 +62,7 @@ export default function Payment() {
                     className="w-full rounded-xl border border-[#4b2d68] bg-[#392154] px-4 py-3 text-white placeholder:text-lozo-gray-200 focus:outline-none focus:ring-2 focus:ring-lozo-purple-200"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm text-[#d1d5db] mb-2">
                     Số điện thoại *
@@ -94,8 +78,10 @@ export default function Payment() {
 
             {/* Payment Methods */}
             <div className="rounded-2xl border border-[#4b2d68] bg-gradient-to-r from-[#361656] to-[#44166d] backdrop-blur-sm p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Phương thức thanh toán</h2>
-              
+              <h2 className="text-xl font-bold text-white mb-4">
+                Phương thức thanh toán
+              </h2>
+
               <div className="space-y-4">
                 {/* MoMo Option */}
                 <div className="rounded-xl border-2 border-[#4b2d68] p-4 cursor-pointer hover:border-lozo-pink transition-colors">
@@ -103,7 +89,9 @@ export default function Payment() {
                     <Smartphone className="h-6 w-6 text-[#f472b6]" />
                     <div>
                       <h3 className="text-white font-medium">Ví MoMo</h3>
-                      <p className="text-sm text-[#d1d5db]">Thanh toán qua ví điện tử MoMo</p>
+                      <p className="text-sm text-[#d1d5db]">
+                        Thanh toán qua ví điện tử MoMo
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -113,8 +101,12 @@ export default function Payment() {
                   <div className="flex items-center gap-3">
                     <Building2 className="h-6 w-6 text-[#60a5fa]" />
                     <div>
-                      <h3 className="text-white font-medium">Chuyển khoản ngân hàng</h3>
-                      <p className="text-sm text-[#d1d5db]">Chuyển khoản qua mã QR</p>
+                      <h3 className="text-white font-medium">
+                        Chuyển khoản ngân hàng
+                      </h3>
+                      <p className="text-sm text-[#d1d5db]">
+                        Chuyển khoản qua mã QR
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -125,8 +117,10 @@ export default function Payment() {
           {/* Right Column - Order Summary */}
           <div className="lg:col-span-1">
             <div className="rounded-2xl border border-[#4b2d68] bg-gradient-to-r from-[#371658] to-[#43166f] backdrop-blur-sm p-6 sticky top-6">
-              <h2 className="text-xl font-bold text-white mb-4">Thông tin đơn hàng</h2>
-              
+              <h2 className="text-xl font-bold text-white mb-4">
+                Thông tin đơn hàng
+              </h2>
+
               {/* Package Info */}
               <div className="rounded-xl bg-[#4d226f] p-4 mb-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -135,27 +129,37 @@ export default function Payment() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium">Gói Nâng Cao</h3>
-                    <p className="text-sm text-[#d1d5db]">Khóa học an ninh mạng</p>
+                    <p className="text-sm text-[#d1d5db]">
+                      Khóa học an ninh mạng
+                    </p>
                   </div>
                 </div>
-                
+
                 {/* Features */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-400" />
-                    <span className="text-sm text-[#d1d5db]">Tất cả khóa học gói Cơ bản</span>
+                    <span className="text-sm text-[#d1d5db]">
+                      Tất cả khóa học gói Cơ bản
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-400" />
-                    <span className="text-sm text-[#d1d5db]">Phòng lab thực hành cao cấp</span>
+                    <span className="text-sm text-[#d1d5db]">
+                      Phòng lab thực hành cao cấp
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-400" />
-                    <span className="text-sm text-[#d1d5db]">Bài tập thực hành CTF</span>
+                    <span className="text-sm text-[#d1d5db]">
+                      Bài tập thực hành CTF
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-400" />
-                    <span className="text-sm text-[#d1d5db]">Dự án thực tế với doanh nghiệp</span>
+                    <span className="text-sm text-[#d1d5db]">
+                      Dự án thực tế với doanh nghiệp
+                    </span>
                   </div>
                 </div>
               </div>
@@ -178,9 +182,9 @@ export default function Payment() {
 
               {/* Confirm Button */}
               {/* <Link to={ENDPOINTS.USER.DASHBOARD}> */}
-                <button className="w-full mt-6 rounded-xl bg-lozo-button py-3 text-white font-medium hover:opacity-90 transition-opacity">
-                    Xác nhận thanh toán
-                </button>
+              <button className="w-full mt-6 rounded-xl bg-lozo-button py-3 text-white font-medium hover:opacity-90 transition-opacity">
+                Xác nhận thanh toán
+              </button>
               {/* </Link> */}
 
               {/* Terms */}

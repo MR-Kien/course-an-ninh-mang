@@ -1,32 +1,23 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ENDPOINTS } from "../../../routes/endPoints";
-export default function Login() {
-  const [rememberMe, setRememberMe] = useState(false);
+export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordAgain, setPasswordAgain] = useState("");
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      alert("Vui lòng nhập đầy đủ thông tin.");
+    if (password !== passwordAgain) {
+      alert("Mật khẩu không khớp!");
       return;
     }
-
-    if (rememberMe) {
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
-    } else {
-      localStorage.removeItem("email");
-      localStorage.removeItem("password");
-    }
-
-    navigate(ENDPOINTS.USER.DASHBOARD);
-
-    // Handle login logic here
+    navigate(ENDPOINTS.AUTH.SIGNIN_SUCCESS, { state: { email } });
   };
+
   return (
-    <div className="min-h-screen bg-lozo-dark relative overflow-hidden">
+    <div className="max-h-[1024px] bg-lozo-dark relative overflow-hidden">
       {/* Background gradient elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top right blur */}
@@ -92,7 +83,7 @@ export default function Login() {
               {/* Form container with border */}
               <div className="border-4 border-lozo-purple border-opacity-70 rounded-3xl p-8 lg:p-12 bg-lozo-dark bg-opacity-50 backdrop-blur-sm">
                 <h2 className="font-bank-gothic text-3xl md:text-4xl lg:text-5xl text-white text-center mb-8 lg:mb-12 tracking-wider">
-                  Login
+                  REGISTER
                 </h2>
 
                 <form className="space-y-6">
@@ -118,49 +109,22 @@ export default function Login() {
                     />
                   </div>
 
-                  {/* Remember me checkbox */}
-                  <div className="flex items-center gap-3">
-                    <div className="relative">
-                      <input
-                        type="checkbox"
-                        id="remember"
-                        checked={rememberMe}
-                        onChange={(e) => setRememberMe(e.target.checked)}
-                        className="w-4 h-4 opacity-0 absolute"
-                      />
-                      <div className="w-4 h-4 bg-gray-300 cursor-pointer relative">
-                        {rememberMe && (
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="absolute inset-0"
-                          >
-                            <path
-                              d="M2.3999 8.00004L6.39985 12.0001L13.5999 4.80008L12.4719 3.66406L6.39985 9.73604L3.52795 6.86406L2.3999 8.00004Z"
-                              fill="black"
-                            />
-                          </svg>
-                        )}
-                      </div>
-                    </div>
-                    <label
-                      htmlFor="remember"
-                      className="text-white font-chakra text-lg lg:text-xl cursor-pointer"
-                    >
-                      Remember me
-                    </label>
+                  <div className="relative">
+                    <input
+                      type="password"
+                      value={passwordAgain}
+                      onChange={(e) => setPasswordAgain(e.target.value)}
+                      placeholder="Nhập lại mật khẩu"
+                      className="w-full h-16 px-6 rounded-2xl border border-gray-300 bg-transparent text-white placeholder-white placeholder-opacity-60 font-chakra text-xl lg:text-2xl focus:outline-none focus:border-lozo-purple transition-colors"
+                    />
                   </div>
-
                   {/* Login button */}
                   <button
-                    type="submit"
                     onClick={handleSubmit}
+                    type="submit"
                     className="w-full h-16 rounded-2xl bg-gradient-to-r from-lozo-form-bg via-lozo-form-mid to-lozo-purple-light border border-white border-opacity-30 text-white font-chakra text-2xl lg:text-3xl font-medium hover:opacity-90 transition-opacity"
                   >
-                    Login
+                    REGISTER
                   </button>
 
                   {/* Forgot password */}
@@ -249,17 +213,6 @@ export default function Login() {
                     </button>
                   </div>
                 </form>
-                <div className="text-center">
-                  <span className="text-white font-chakra text-lg lg:text-xl">
-                    Bạn chưa có tài khoản?{" "}
-                  </span>
-                  <Link
-                    to="/signin"
-                    className="text-lozo-purple font-chakra text-lg lg:text-xl hover:underline"
-                  >
-                    Đăng ký
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

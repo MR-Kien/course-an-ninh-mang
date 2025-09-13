@@ -1,4 +1,5 @@
 import { Shield, BookOpen, Target } from "lucide-react";
+import { ENDPOINTS } from "../../../routes/endPoints";
 import Header from "../../../components/Header/Header";
 import HeroSection from "../component/Hero";
 import CourseCard from "../component/CourseCard";
@@ -15,7 +16,8 @@ export default function Index() {
     {
       id: 1,
       title: "An ninh mạng cơ bản",
-      description: "Học các nguyên tắc cơ bản về an ninh mạng, bao gồm cảnh quan mối đe dọa, nguyên tắc bảo mật và chiến lược phòng thủ cơ bản.",
+      description:
+        "Học các nguyên tắc cơ bản về an ninh mạng, bao gồm cảnh quan mối đe dọa, nguyên tắc bảo mật và chiến lược phòng thủ cơ bản.",
       level: "Cơ bản",
       levelColor: "bg-gradient-to-r from-green-500 to-emerald-500",
       rating: 4.8,
@@ -25,12 +27,13 @@ export default function Index() {
       progress: 75,
       tags: ["Nguyên tắc bảo mật", "Đánh giá rủi ro"],
       image: pic1,
-      badges: ["Hot"]
+      badges: ["Hot"],
     },
     {
       id: 2,
       title: "Ethical Hacking cơ bản",
-      description: "Thành thạo nghệ thuật ethical hacking với các kỹ thuật penetration testing thực hành và đánh giá lỗ hổng bảo mật.",
+      description:
+        "Thành thạo nghệ thuật ethical hacking với các kỹ thuật penetration testing thực hành và đánh giá lỗ hổng bảo mật.",
       level: "Trung cấp",
       levelColor: "bg-gradient-to-r from-yellow-500 to-orange-500",
       rating: 4.9,
@@ -40,12 +43,13 @@ export default function Index() {
       progress: 47,
       tags: ["Penetration Testing", "Quét lỗ hổng"],
       image: pic2,
-      badges: ["Mới"]
+      badges: ["Mới"],
     },
     {
       id: 3,
       title: "Dịch ngược Mã nguồn",
-      description: "Rèn luyện kỹ năng với các thử thách Capture The Flag bao gồm mật mã học, reverse engineering và nhiều hơn nữa.",
+      description:
+        "Rèn luyện kỹ năng với các thử thách Capture The Flag bao gồm mật mã học, reverse engineering và nhiều hơn nữa.",
       level: "Nâng cao",
       levelColor: "bg-gradient-to-r from-red-500 to-pink-500",
       rating: 4.7,
@@ -54,12 +58,13 @@ export default function Index() {
       flashcards: "10 thẻ",
       progress: 30,
       tags: ["Mật mã học", "Reverse Engineering"],
-      image: pic3
+      image: pic3,
     },
     {
       id: 4,
       title: "Bảo mật ứng dụng Web",
-      description: "Tìm hiểu sâu về bảo mật ứng dụng web, OWASP Top 10, và các kỹ thuật tấn công phòng thủ hiện ��ại.",
+      description:
+        "Tìm hiểu sâu về bảo mật ứng dụng web, OWASP Top 10, và các kỹ thuật tấn công phòng thủ hiện ��ại.",
       level: "Trung cấp",
       levelColor: "bg-gradient-to-r from-yellow-500 to-orange-500",
       rating: 4.8,
@@ -69,12 +74,13 @@ export default function Index() {
       progress: 67,
       tags: ["OWASP Top 10", "SQL Injection"],
       image: pic4,
-      badges: ["Hot"]
+      badges: ["Hot"],
     },
     {
       id: 5,
       title: "Điều tra số (Digital Forensics)",
-      description: "Học cách thu thập, phân tích và bảo toàn bằng chứng số trong các cuộc điều tra an ninh mạng.",
+      description:
+        "Học cách thu thập, phân tích và bảo toàn bằng chứng số trong các cuộc điều tra an ninh mạng.",
       level: "Nâng cao",
       levelColor: "bg-gradient-to-r from-red-500 to-pink-500",
       rating: 4.9,
@@ -83,12 +89,13 @@ export default function Index() {
       flashcards: "14 thẻ",
       progress: 57,
       tags: ["Thu thập chứng cứ", "Phân tích malware"],
-      image: pic5
+      image: pic5,
     },
     {
       id: 6,
       title: "Bảo mật di động",
-      description: "Khám phá bảo mật cho các ứng dụng di động Android và iOS, bao gồm phân tích tĩnh và động.",
+      description:
+        "Khám phá bảo mật cho các ứng dụng di động Android và iOS, bao gồm phân tích tĩnh và động.",
       level: "Trung cấp",
       levelColor: "bg-gradient-to-r from-yellow-500 to-orange-500",
       rating: 4.6,
@@ -98,8 +105,8 @@ export default function Index() {
       progress: 31,
       tags: ["Bảo mật Android", "Phân tích iOS"],
       image: pic6,
-      badges: ["Mới"]
-    }
+      badges: ["Mới"],
+    },
   ];
 
   return (
@@ -117,7 +124,7 @@ export default function Index() {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDuration: `${2 + Math.random() * 2}s`,
             }}
           />
         ))}
@@ -149,6 +156,7 @@ export default function Index() {
                 title="Khám phá khóa học"
                 description="Tìm hiểu các khóa học mới nhất"
                 gradient="bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/30"
+                link={ENDPOINTS.USER.COURSES}
               />
               <FeatureCard
                 icon={Target}
@@ -156,6 +164,7 @@ export default function Index() {
                 title="Phòng Lab"
                 description="Luyện tập với bài tập thực tế"
                 gradient="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/30"
+                link={ENDPOINTS.USER.LABS}
               />
               <FeatureCard
                 icon={Shield}
@@ -163,6 +172,7 @@ export default function Index() {
                 title="Thử thách CTF"
                 description="Tham gia các cuộc thi CTF"
                 gradient="bg-gradient-to-br from-orange-900/30 to-red-900/30 border border-orange-500/30"
+                link={ENDPOINTS.USER.CFT}
               />
             </div>
           </div>

@@ -14,7 +14,7 @@ import RequiredPermission from "../components/RequiredPermission";
 import { ENDPOINTS } from "./endPoints";
 import LandingLayout from "../layouts/LandingLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
-const WEB_NAME = "Hematology Analyzer";
+const WEB_NAME = "LozoAcademy";
 
 const RequiredAuth = ({ children, path }) => {
   const location = useLocation();
@@ -74,7 +74,6 @@ const noTestPage = {
   component: lazy(() => delayRoute()(import("../modules/notest/features"))),
   title: `Not Allowed Test | ${WEB_NAME}`,
   Layout: LandingLayout,
-
 };
 // const courseTestPage = {
 //   path: ENDPOINTS.USER.TEST,
@@ -87,19 +86,19 @@ const coursePaymentPage = {
   component: lazy(() => delayRoute()(import("../modules/payment/features"))),
   title: `Payment | ${WEB_NAME}`,
   Layout: LandingLayout,
-}
+};
 const courseCerPage = {
   path: ENDPOINTS.USER.CER,
   component: lazy(() => delayRoute()(import("../modules/cer/features"))),
   title: `Certificate | ${WEB_NAME}`,
   Layout: LandingLayout,
-}
+};
 const flashcardPage = {
   path: ENDPOINTS.USER.FLASHCARD,
   component: lazy(() => delayRoute()(import("../modules/flashcard/features"))),
   title: `Flashcard | ${WEB_NAME}`,
   Layout: LandingLayout,
-}
+};
 const coursePage = {
   path: ENDPOINTS.USER.COURSES,
   component: lazy(() => delayRoute()(import("../modules/courses/features"))),
@@ -133,10 +132,101 @@ const forgotPasswordPage = {
   title: `Forgot Password | ${WEB_NAME}`,
   Layout: LandingLayout,
 };
+const signinpage = {
+  path: ENDPOINTS.AUTH.SIGNIN,
+  component: lazy(() =>
+    delayRoute()(import("../modules/auth/features/signin"))
+  ),
+  title: `Sign In | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const signinSuccessPage = {
+  path: ENDPOINTS.AUTH.SIGNIN_SUCCESS,
+  component: lazy(() =>
+    delayRoute()(import("../modules/auth/features/signinSuccess"))
+  ),
+  title: `Sign In | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const adminDashboardPage = {
+  path: ENDPOINTS.USER.ADMINDASHBOARD,
+  component: lazy(() =>
+    delayRoute()(import("../modules/admindashboard/features/index"))
+  ),
+  title: `Dashboard | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const userDashboardPage = {
+  path: ENDPOINTS.USER.USERDASHBOARD,
+  component: lazy(() =>
+    delayRoute()(import("../modules/userdashboard/features/index"))
+  ),
+  title: `Dashboard | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const labsPage = {
+  path: ENDPOINTS.USER.LABS,
+  component: lazy(() => delayRoute()(import("../modules/labs/features/index"))),
+  title: `Labs | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const cftPage = {
+  path: ENDPOINTS.USER.CFT,
+  component: lazy(() => delayRoute()(import("../modules/ctf/features/index"))),
+  title: `CFT | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const chatbotPage = {
+  path: ENDPOINTS.USER.CHATBOT,
+  component: lazy(() =>
+    delayRoute()(import("../modules/chatbot/features/index"))
+  ),
+  title: `Chatbot | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const coursesPage = {
+  path: ENDPOINTS.USER.COURSE,
+  component: lazy(() =>
+    delayRoute()(import("../modules/course/features/index"))
+  ),
+  title: `Courses | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const aboutPage = {
+  path: ENDPOINTS.USER.ABOUT,
+  component: lazy(() =>
+    delayRoute()(import("../modules/about/features/index"))
+  ),
+  title: `About | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
 
 // Các trang khác sẽ được thêm vào đây
 export const privateRouteData = [];
-export const publicRoutesData = [landingPage, loginPage, forgotPasswordPage, coursePage, courseDemoPage, oopsPage, courseManamentPage, noTestPage, coursePaymentPage, courseCerPage, flashcardPage, premiumPage, sampleTestPage];
+export const publicRoutesData = [
+  landingPage,
+  loginPage,
+  forgotPasswordPage,
+  coursePage,
+  courseDemoPage,
+  oopsPage,
+  courseManamentPage,
+  noTestPage,
+  coursePaymentPage,
+  courseCerPage,
+  flashcardPage,
+  premiumPage,
+  sampleTestPage,
+  adminDashboardPage,
+  userDashboardPage,
+  labsPage,
+  cftPage,
+  chatbotPage,
+  coursesPage,
+  aboutPage,
+  signinpage,
+  signinSuccessPage,
+];
 
 // Improved route rendering function
 const renderRoutes = (routes, isPrivate = false) => {

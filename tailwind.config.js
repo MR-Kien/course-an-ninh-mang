@@ -15,11 +15,54 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
+        // lấy giá trị lớn nhất từ cả hai
         "2xl": "1400px",
       },
     },
     extend: {
       colors: {
+        // --- từ file 1 ---
+        "magenta-primary": "#C400FF",
+        "magenta-secondary": "#7F00FF",
+        "magenta-light": "#510A6E",
+        "magenta-lighter": "#510A6E",
+        "magenta-lightest": "#530972",
+
+        "violet-dark": "#2D0A31",
+        "violet-darker": "#1A001F",
+
+        "glass-white": "rgba(255,255,255,0.08)",
+        "glass-white-10": "rgba(255,255,255,0.10)",
+        "glass-white-20": "rgba(255,255,255,0.20)",
+        "glass-border": "rgba(255,255,255,0.12)",
+
+        "azure-84": "rgba(255,255,255,0.84)",
+        "azure-65": "rgba(255,255,255,0.65)",
+
+        success: "#22C55E",
+        experience: "#FACC15",
+        "experience-dark": "#EAB308",
+
+        difficulty: {
+          basic: "#22C55E",
+          intermediate: "#FACC15",
+          advanced: "#EF4444",
+        },
+
+        lozo: {
+          dark: "#0D0D0D",
+          purple: "#A10EA4",
+          "purple-dark": "#48084A",
+          "purple-light": "#E310D5",
+          "form-bg": "#281F28",
+          "form-mid": "#4B1447",
+          green: "#084A1A",
+          primary: "#C400FF",
+          secondary: "#7F00FF",
+          darker: "#1A001F",
+        },
+
+        // --- từ file 2 ---
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -108,7 +151,7 @@ module.exports = {
           primary: "#A10EA4",
           secondary: "#E310D5",
         },
-        lozo: {
+        lozoExtra: {
           purple: {
             100: "#A10EA4",
             200: "#A855F7",
@@ -122,65 +165,84 @@ module.exports = {
             tertiary: "#4B1447",
           },
           gray: {
-              100: "#D1D5DB",
-              200: "#9CA3AF",
-              300: "rgba(255, 255, 255, 0.05)",
-              400: "rgba(255, 255, 255, 0.10)",
-              500: "rgba(0, 0, 0, 0.20)",
-            },
+            100: "#D1D5DB",
+            200: "#9CA3AF",
+            300: "rgba(255, 255, 255, 0.05)",
+            400: "rgba(255, 255, 255, 0.10)",
+            500: "rgba(0, 0, 0, 0.20)",
+          },
           green: "#4ADE80",
           blue: "#60A5FA",
         },
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(90deg, hsl(var(--purple-600)) 0%, hsl(var(--pink-600)) 100%)',
-        'gradient-secondary': 'linear-gradient(90deg, hsl(var(--orange-500)) 0%, hsl(var(--red-500)) 100%)',
-        'gradient-primary-subtle': 'linear-gradient(90deg, rgba(147, 51, 234, 0.30) 0%, rgba(219, 39, 119, 0.20) 100%)',
-        'gradient-card': 'linear-gradient(90deg, hsl(var(--slate-600)) 0%, hsl(var(--slate-700)) 100%)',
-        'lozo-gradient': 'linear-gradient(135deg, #111827 0%, #581C87 50%, #4C1D95 100%)',
-        'lozo-button': 'linear-gradient(90deg, #A855F7 0%, #EC4899 100%)',
-        'lozo-shield': 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        "hero-gradient": "linear-gradient(to right, #C400FF, #7F00FF)",
+        "page-gradient":
+          "linear-gradient(to bottom, #140018, #1A0020, #0A000D)",
+        "footer-gradient":
+          "linear-gradient(to bottom right, #E879F9, rgba(45,10,49,0.3), #000000)",
+
+        "gradient-primary":
+          "linear-gradient(90deg, hsl(var(--purple-600)) 0%, hsl(var(--pink-600)) 100%)",
+        "gradient-secondary":
+          "linear-gradient(90deg, hsl(var(--orange-500)) 0%, hsl(var(--red-500)) 100%)",
+        "gradient-primary-subtle":
+          "linear-gradient(90deg, rgba(147, 51, 234, 0.30) 0%, rgba(219, 39, 119, 0.20) 100%)",
+        "gradient-card":
+          "linear-gradient(90deg, hsl(var(--slate-600)) 0%, hsl(var(--slate-700)) 100%)",
+        "lozo-gradient":
+          "linear-gradient(135deg, #111827 0%, #581C87 50%, #4C1D95 100%)",
+        "lozo-button": "linear-gradient(90deg, #A855F7 0%, #EC4899 100%)",
+        "lozo-shield": "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+        xl: "1rem",
+        "2xl": "1.5rem",
       },
       fontFamily: {
-        'roboto': ['Roboto', 'system-ui', 'sans-serif'],
+        "bank-gothic": [
+          "BankGothic Md BT",
+          "Impact",
+          "Bebas Neue",
+          "Arial Black",
+          "Helvetica",
+          "sans-serif",
+        ],
+        chakra: ["Chakra Petch", "Roboto", "system-ui", "sans-serif"],
+        crimson: ["Crimson Text", "Times New Roman", "Georgia", "serif"],
+        inter: ["Inter", "system-ui", "sans-serif"],
+        roboto: ["Roboto", "system-ui", "sans-serif"],
       },
-    },
-    borderRadius: {
-      lg: "var(--radius)",
-      md: "calc(var(--radius) - 2px)",
-      sm: "calc(var(--radius) - 4px)",
-      xl: "1rem",
-      "2xl": "1.5rem",
-    },
-    keyframes: {
-      slide: {
-        "0%": { transform: "translateX(0%)" },
-        "100%": { transform: "translateX(-50%)" },
+      keyframes: {
+        slide: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        slideup: {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
-      slideup: {
-        "0%": { transform: "translateY(20px)", opacity: "0" },
-        "100%": { transform: "translateY(0)", opacity: "1" },
+      animation: {
+        slide: "slide 5s linear infinite",
+        slideup: "slide-up 0.5s ease-out forwards",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
-      "accordion-down": {
-        from: { height: "0" },
-        to: { height: "var(--radix-accordion-content-height)" },
-      },
-      "accordion-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: "0" },
-      },
-    },
-    animation: {
-      slide: "slide 5s linear infinite",
-      slideup: "slide-up 0.5s ease-out forwards",
-      "accordion-down": "accordion-down 0.2s ease-out",
-      "accordion-up": "accordion-up 0.2s ease-out",
     },
   },
-
-  plugins: [
-    animate
-  ],
+  plugins: [animate],
   mode: "jit",
 };
