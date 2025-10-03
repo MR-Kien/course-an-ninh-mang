@@ -75,12 +75,6 @@ const noTestPage = {
   title: `Not Allowed Test | ${WEB_NAME}`,
   Layout: LandingLayout,
 };
-// const courseTestPage = {
-//   path: ENDPOINTS.USER.TEST,
-//   component: lazy(() => delayRoute()(import("../modules/test/features"))),
-//   title: `Test | ${WEB_NAME}`,
-//   Layout: LandingLayout,
-// };
 const coursePaymentPage = {
   path: ENDPOINTS.USER.PAYMENT,
   component: lazy(() => delayRoute()(import("../modules/payment/features"))),

@@ -1,6 +1,3 @@
-// import { Button } from "../../components/ui/button";
-import Button from "@mui/material/Button";
-// import { LogIn, Shield } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { ENDPOINTS } from "@/routes/endPoints";
 import AIchat from "../../assets/icons/Group.png";
@@ -77,7 +74,7 @@ export default function Header() {
             </Link>
 
             <div className="text-white/80 font-bold text-sm">
-              Xin chào, user
+              Xin chào, Minh Nhật
             </div>
 
             <button
