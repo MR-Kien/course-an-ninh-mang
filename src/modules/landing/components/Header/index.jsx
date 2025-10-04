@@ -25,25 +25,25 @@ export default function Header() {
               Khóa học
             </a>
             <a
-              href="/lab"
+              href="/user/labs"
               className="text-white/80 hover:text-white font-bold text-base transition-colors"
             >
               Phòng lab
             </a>
             <a
-              href="/ctf"
+              href="/user/cft"
               className="text-white/80 hover:text-white font-bold text-base transition-colors"
             >
               CTF
             </a>
             <a
-              href="/about"
+              href="/user/about"
               className="text-white/80 hover:text-white font-bold text-base transition-colors"
             >
               Giới thiệu
             </a>
             <a
-              href="/contact"
+              href="/user/chatbot"
               className="text-white/80 hover:text-white font-bold text-base transition-colors"
             >
               <img
