@@ -1,5 +1,4 @@
-const BASE_URL =
-  "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api";
+const BASE_URL = "https://course-an-ninh-mang-backend.vercel.app/api";
 export default {
   AUTH: {
     LOGIN: `${BASE_URL}/auth/login`,

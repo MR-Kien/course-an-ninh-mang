@@ -2,8 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios"; // Giả sử bạn dùng Axios; nếu dùng fetch, thay thế bằng fetch
 
 // Base URL cho API (có thể config từ env: process.env.REACT_APP_API_URL)
-const API_BASE_URL =
-  "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api"; // Thay bằng URL backend của bạn
+const API_BASE_URL = "https://course-an-ninh-mang-backend.vercel.app/api"; // Thay bằng URL backend của bạn
 
 // Instance Axios với config chung (thêm auth nếu cần, ví dụ: Bearer token)
 const token = localStorage.getItem("access_token");

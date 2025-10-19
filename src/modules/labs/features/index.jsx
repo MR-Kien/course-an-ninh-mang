@@ -39,7 +39,7 @@ const Labs = () => {
     const fetchLabs = async () => {
       try {
         const res = await axios.get(
-          "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/courses/lab",
+          "https://course-an-ninh-mang-backend.vercel.app/api/courses/lab",
           {
             headers: {
               Authorization: `Bearer ${token}`,

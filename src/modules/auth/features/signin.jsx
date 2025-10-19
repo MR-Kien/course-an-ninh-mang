@@ -21,7 +21,7 @@ export default function Signin() {
 
     try {
       const res = await axios.post(
-        "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/auth/register",
+        "https://course-an-ninh-mang-backend.vercel.app/api/auth/register",
         {
           ten: name,
           email,

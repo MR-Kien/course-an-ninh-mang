@@ -261,7 +261,7 @@ export default function ChatBot() {
   useEffect(() => {
     axios
       .get(
-        `https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/chatbot/topics`,
+        `https://course-an-ninh-mang-backend.vercel.app/api/chatbot/topics`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -277,7 +277,7 @@ export default function ChatBot() {
     setCurrentTopic(topic);
 
     const res = await axios.get(
-      `https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/chatbot/topics/${topicId}/qa`,
+      `https://course-an-ninh-mang-backend.vercel.app/api/chatbot/topics/${topicId}/qa`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -305,7 +305,7 @@ export default function ChatBot() {
 
     try {
       const res = await axios.post(
-        "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/chatbot/chat",
+        "https://course-an-ninh-mang-backend.vercel.app/api/chatbot/chat",
         {
           topicId,
           messages: [userMsg],

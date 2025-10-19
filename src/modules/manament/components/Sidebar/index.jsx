@@ -227,7 +227,7 @@ export default function Sidebar({
       formData.append("file", file);
 
       const response = await axios.post(
-        "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/courses/upload",
+        "https://course-an-ninh-mang-backend.vercel.app/api/courses/upload",
         formData,
         {
           headers: {

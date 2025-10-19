@@ -37,7 +37,7 @@ export default function AdminDashboard() {
       try {
         const token = localStorage.getItem("access_token");
         const response = await axios.get(
-          "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/user/admindashboard",
+          "https://course-an-ninh-mang-backend.vercel.app/api/user/admindashboard",
           {
             headers: {
               Authorization: `Bearer ${token}`,

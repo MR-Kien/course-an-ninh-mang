@@ -49,7 +49,7 @@ const CTF = () => {
       if (status) params.status = status;
 
       const response = await axios.get(
-        "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/courses/ctf",
+        "https://course-an-ninh-mang-backend.vercel.app/api/courses/ctf",
         {
           params,
           headers: {
