@@ -4,6 +4,7 @@ import AIchat from "../../assets/icons/Group.png";
 import { Users, LogOut } from "lucide-react";
 export default function Header() {
   const navigate = useNavigate();
+  const username = JSON.parse(localStorage.getItem("user")).name;
   const handleLogout = () => {
     navigate("/");
   };
@@ -74,7 +75,7 @@ export default function Header() {
             </Link>
 
             <div className="text-white/80 font-bold text-sm">
-              Xin chào, Minh Nhật
+              Xin chào, {username}
             </div>
 
             <button

@@ -1,19 +1,47 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ENDPOINTS } from "../../../routes/endPoints";
+import axios from "axios";
 export default function Signin() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (password !== passwordAgain) {
-      alert("Mật khẩu không khớp!");
+      alert("❌ Mật khẩu không khớp!");
       return;
     }
-    navigate(ENDPOINTS.AUTH.SIGNIN_SUCCESS, { state: { email } });
+
+    try {
+      const res = await axios.post(
+        "https://course-an-ninh-mang-backend-huqnjcr43-kiens-projects-6b39ee18.vercel.app/api/auth/register",
+        {
+          ten: name,
+          email,
+          matkhau: password,
+          ngaysinh: birthday,
+        }
+      );
+
+      if (res.status === 201) {
+        alert("✅ Đăng ký thành công!");
+        navigate(ENDPOINTS.AUTH.SIGNIN_SUCCESS, { state: { email } });
+      }
+    } catch (err) {
+      console.error(err);
+      if (err.response?.data?.message) {
+        alert(`⚠️ ${err.response.data.message}`);
+      } else {
+        alert("⚠️ Lỗi kết nối server!");
+      }
+    }
   };
 
   return (
@@ -93,10 +121,30 @@ export default function Signin() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Nhập tên hoặc Email"
+                      placeholder="Nhập Email"
                       className="w-full h-16 px-6 rounded-2xl border border-gray-300 bg-transparent text-white placeholder-white placeholder-opacity-60 font-chakra text-xl lg:text-2xl focus:outline-none focus:border-lozo-purple transition-colors"
                     />
                   </div>
+                  {/* Name input */}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Nhập tên"
+                      className="w-full h-16 px-6 rounded-2xl border border-gray-300 bg-transparent text-white placeholder-white placeholder-opacity-60 font-chakra text-xl lg:text-2xl focus:outline-none focus:border-lozo-purple transition-colors"
+                    />
+                  </div>
+                  {/* Birthday input */}
+                  <input
+                    type={isFocused ? "date" : "text"}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={(e) => !e.target.value && setIsFocused(false)}
+                    placeholder="Nhập ngày sinh"
+                    value={birthday}
+                    onChange={(e) => setBirthday(e.target.value)}
+                    className="w-full h-16 px-6 rounded-2xl border border-gray-500 bg-transparent text-white text-lg placeholder-white/60 focus:border-lozo-purple focus:ring-1 focus:ring-lozo-purple transition"
+                  />
 
                   {/* Password input */}
                   <div className="relative">

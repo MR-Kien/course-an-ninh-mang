@@ -4,20 +4,15 @@ import { setCredentials, logout } from "../store/slices/authSlice";
 import { jwtDecode } from "jwt-decode";
 import request from "../utils/request";
 import endpoints from "../constants/apiEndpoints";
-// import axios from 'axios';
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ENDPOINTS } from "../routes/endPoints";
 import { toast } from "react-toastify";
-import { useNotificationSocket } from "./useNotificationSocket";
 export const useAuth = () => {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
   const { user, token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const { disconnect } = useNotificationSocket((message) => {
-    console.log("Notification:", message);
-  });
-
   const loginMutation = useMutation({
     mutationFn: async (inp) => {
       // Xóa trước khi gọi API đăng nhập
@@ -30,16 +25,24 @@ export const useAuth = () => {
       console.log("Token decoded:", decoded);
       const restructuredData = {
         user: {
-          id: decoded.sub,
-          scope: decoded.scope,
-          username: decoded.username,
-          avatarUrl: decoded.avatarUrl,
+          id: data.user.id || decoded.id,
+          email: data.user.email || decoded.email,
+          name: data.user.ten || decoded.ten,
+          role: data.user.role || decoded.role,
         },
         token: data.token,
       };
       dispatch(setCredentials(restructuredData));
       queryClient.invalidateQueries({ queryKey: ["user"] });
       setTimeout(() => {
+        if (data.user.role === "admin") {
+          navigate(ENDPOINTS.USER.ADMINDASHBOARD);
+          return;
+        }
+        if (data.user.role === "user_premium") {
+          navigate(ENDPOINTS.USER.PREMIUM);
+          return;
+        }
         navigate(ENDPOINTS.USER.DASHBOARD);
       }, 1000);
       toast.success("Login successfully", {
@@ -67,7 +70,6 @@ export const useAuth = () => {
     dispatch(logout());
     queryClient.clear();
     await request.post(endpoints.AUTH.LOGOUT, { token: token });
-    disconnect();
     toast.success("Logout successfully", {
       position: "top-left",
       autoClose: 3000,

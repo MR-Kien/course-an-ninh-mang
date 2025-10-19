@@ -11,7 +11,7 @@ export const ENDPOINTS = Object.freeze({
     DEMO: "/user/demo/:id",
     // DEMO: (id) => `/user/demo/${id}`,
     OOPS: "/user/oops",
-    MANAMENT: "/user/manament",
+    MANAMENT: "/admin/manament",
     NOTEST: "/user/notest",
     PAYMENT: "/user/payment",
     CER: "/user/cer",

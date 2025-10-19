@@ -6,7 +6,6 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import Header from "../components/Header/Header";
 import PropTypes from "prop-types";
 import LoadingOverlay from "../components/LoadingOverlay/LoadingOverlay";
-import NotificationPanel from "../components/NotificationPanel";
 
 const DashboardLayout = ({ children }) => {
   return (
@@ -17,7 +16,6 @@ const DashboardLayout = ({ children }) => {
           <Header />
           <main className="flex-1 p-4">
             <LoadingOverlay />
-            <NotificationPanel />
             {children}
           </main>
         </div>

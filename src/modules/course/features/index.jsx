@@ -88,7 +88,15 @@ const PricingCard = ({
       ))}
     </div>
 
-    <Link to={ENDPOINTS.USER.PAYMENT}>
+    <Link
+      to={ENDPOINTS.USER.PAYMENT}
+      state={{
+        title: title,
+        price: price,
+        period: period,
+        features: features,
+      }}
+    >
       <button
         className={`w-full py-3 px-6 rounded-lg font-medium transition-all ${
           buttonVariant === "primary"
@@ -110,7 +118,7 @@ const Pricing = () => (
       <div className="grid md:grid-cols-3 gap-8">
         <PricingCard
           title="Gói Cơ Bản"
-          price="39K"
+          price={39000}
           period="VNĐ / tháng"
           icon={<Book className="w-8 h-8" />}
           features={[
@@ -125,7 +133,7 @@ const Pricing = () => (
 
         <PricingCard
           title="Gói Nâng Cao"
-          price="89K"
+          price={89000}
           period="VNĐ / tháng"
           icon={<Zap className="w-8 h-8" />}
           features={[
@@ -143,7 +151,7 @@ const Pricing = () => (
 
         <PricingCard
           title="Khóa Chứng Chỉ"
-          price="1.299K"
+          price={1299000}
           period="VNĐ / khóa học"
           icon={<Award className="w-8 h-8" />}
           features={[

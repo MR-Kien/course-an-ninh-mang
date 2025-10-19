@@ -1,161 +1,274 @@
+// import React from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import { ENDPOINTS } from "../../../routes/endPoints";
+// import ForgotPasswordForm from "../components/forgotfasswordform";
+// import CodeForm from "../components/codeform";
+// import NewPasswordForm from "../components/newpassword";
+// import { useAuth } from "../../../hooks/useAuth";
+// import { toast } from "react-toastify";
+
+// const ForgotPassword = () => {
+//   const [showCodeForm, setShowCodeForm] = React.useState(false);
+//   const [userEmail, setUserEmail] = React.useState("");
+//   const [username, setUsername] = React.useState("");
+//   const [showNewPasswordForm, setShowNewPasswordForm] = React.useState(false);
+//   const [verifyToken, setVerifyToken] = React.useState("");
+//   const navigate = useNavigate();
+//   const { forgotPassword, verificationOtp, resetPassword } = useAuth();
+
+//   // Gửi yêu cầu lấy OTP
+//   const handleSubmit = async ({ username, email }) => {
+//     try {
+//       const response = await forgotPassword({ username, email });
+//       if (response) {
+//         setShowCodeForm(true);
+//         setUserEmail(email);
+//         setUsername(username);
+//         toast.success("Gửi mã OTP thành công!");
+//       } else {
+//         toast.error("Gửi OTP thất bại");
+//       }
+//     } catch (error) {
+//       console.error("Error in forgotPassword:", error);
+//       toast.error("Lỗi khi gửi OTP");
+//     }
+//   };
+
+//   // Gửi lại OTP
+//   const handleResend = async () => {
+//     try {
+//       const response = await forgotPassword({ username, email: userEmail });
+//       if (response.code === 1000) {
+//         setShowCodeForm(true);
+//         setShowNewPasswordForm(false);
+//         toast.success("Gửi lại OTP thành công!");
+//       } else {
+//         toast.error("Gửi lại OTP thất bại");
+//       }
+//     } catch (error) {
+//       toast.error("Lỗi khi gửi lại OTP");
+//     }
+//   };
+
+//   // Xác minh OTP
+//   const handleCodeSubmit = async (code) => {
+//     try {
+//       const response = await verificationOtp({ otp: code.code });
+//       if (response && response.verificationToken) {
+//         setVerifyToken(response.verificationToken);
+//         setShowNewPasswordForm(true);
+//         toast.success("Xác minh OTP thành công!");
+//       } else {
+//         toast.error("OTP không hợp lệ");
+//       }
+//     } catch (error) {
+//       toast.error("Lỗi xác minh OTP");
+//     }
+//   };
+
+//   // Đặt lại mật khẩu
+//   const handleNewPasswordSubmit = async (newPasswordObj) => {
+//     const payload = {
+//       username,
+//       newPassword: newPasswordObj.newPassword,
+//       token: verifyToken,
+//     };
+
+//     try {
+//       const response = await resetPassword(payload);
+//       if (response) {
+//         toast.success("Đặt lại mật khẩu thành công!");
+//         setTimeout(() => navigate(ENDPOINTS.AUTH.LOGIN), 1500);
+//       } else {
+//         toast.error("Đặt lại mật khẩu thất bại");
+//       }
+//     } catch (error) {
+//       toast.error("Lỗi khi đặt lại mật khẩu");
+//     }
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-lozo-dark relative overflow-hidden">
+//       {/* Background gradient elements */}
+//       <div className="absolute inset-0 pointer-events-none">
+//         <div className="absolute top-14 right-48 w-72 h-72 rounded-full opacity-80 blur-[30px] bg-gradient-to-b from-lozo-purple via-transparent to-transparent"></div>
+//         <div className="absolute bottom-32 left-52 w-96 h-96 rounded-full opacity-70 blur-[30px] bg-gradient-to-b from-lozo-purple via-lozo-green to-lozo-dark"></div>
+//         <div className="absolute bottom-48 right-72 w-80 h-80 rounded-full opacity-60 blur-[30px] bg-gradient-to-b from-lozo-purple via-lozo-purple-dark to-lozo-dark"></div>
+//         <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-64 h-64 rounded-full opacity-50 blur-[30px] bg-gradient-to-b from-lozo-purple to-transparent"></div>
+//       </div>
+
+//       {/* Main content */}
+//       <div className="relative z-10 min-h-screen flex flex-col">
+//         {/* Logo */}
+//         <div className="flex items-center gap-2 p-8 md:p-12">
+//           <div className="w-8 h-8 relative">
+//             <svg
+//               width="32"
+//               height="32"
+//               viewBox="0 0 32 32"
+//               fill="none"
+//               xmlns="http://www.w3.org/2000/svg"
+//             >
+//               <path
+//                 d="M26.6668 17.3333C26.6668 23.9999 22.0002 27.3333 16.4535 29.2666C16.163 29.365 15.8475 29.3603 15.5602 29.2533C10.0002 27.3333 5.3335 23.9999 5.3335 17.3333V7.99995C5.3335 7.64633 5.47397 7.30719 5.72402 7.05714C5.97407 6.80709 6.31321 6.66662 6.66683 6.66662C9.3335 6.66662 12.6668 5.06662 14.9868 3.03995C15.2693 2.79861 15.6286 2.66602 16.0002 2.66602C16.3717 2.66602 16.731 2.79861 17.0135 3.03995C19.3468 5.07995 22.6668 6.66662 25.3335 6.66662C25.6871 6.66662 26.0263 6.80709 26.2763 7.05714C26.5264 7.30719 26.6668 7.64633 26.6668 7.99995V17.3333Z"
+//                 stroke="#A10EA4"
+//                 strokeWidth="2.66667"
+//                 strokeLinecap="round"
+//                 strokeLinejoin="round"
+//               />
+//             </svg>
+//           </div>
+//           <span className="text-white font-inter font-bold text-xl">
+//             LozoAcademy
+//           </span>
+//         </div>
+
+//         {/* Main form layout */}
+//         <div className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 md:px-12 gap-12 lg:gap-24">
+//           {/* Left content */}
+//           <div className="flex-1 max-w-2xl lg:max-w-3xl text-center lg:text-left">
+//             <h1 className="font-bank-gothic text-5xl md:text-6xl lg:text-7xl text-white mb-6 lg:mb-8 tracking-wider">
+//               FORGOT PASSWORD?
+//             </h1>
+//             <p className="font-crimson text-lg sm:text-xl md:text-2xl text-white mb-8 lg:mb-12 leading-normal max-w-2xl mx-auto lg:mx-0">
+//               Nhập tên người dùng và email để nhận mã xác minh. Sau khi xác
+//               nhận, bạn có thể đặt lại mật khẩu mới một cách nhanh chóng và an
+//               toàn.
+//             </p>
+//             <button
+//               onClick={() => navigate(ENDPOINTS.AUTH.LOGIN)}
+//               className="inline-flex items-center justify-center font-sans font-medium text-lg text-white border border-white rounded-full px-8 py-3 hover:bg-white hover:text-lozo-dark transition-colors duration-200 italic"
+//             >
+//               Back to Login
+//             </button>
+//           </div>
+
+//           {/* Right side - Form */}
+//           <div className="w-full max-w-md lg:max-w-lg">
+//             <div className="border-4 border-lozo-purple border-opacity-70 rounded-3xl p-8 lg:p-12 bg-lozo-dark bg-opacity-50 backdrop-blur-sm">
+//               <h2 className="font-bank-gothic text-3xl md:text-4xl lg:text-5xl text-white text-center mb-8 lg:mb-12 tracking-wider">
+//                 Reset Password
+//               </h2>
+
+//               {showNewPasswordForm ? (
+//                 <NewPasswordForm onSubmit={handleNewPasswordSubmit} />
+//               ) : showCodeForm ? (
+//                 <CodeForm
+//                   email={userEmail}
+//                   onSubmit={handleCodeSubmit}
+//                   onResend={handleResend}
+//                 />
+//               ) : (
+//                 <ForgotPasswordForm onSubmit={handleSubmit} />
+//               )}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ForgotPassword;
 import React from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ENDPOINTS } from "../../../routes/endPoints";
 import ForgotPasswordForm from "../components/forgotfasswordform";
 import CodeForm from "../components/codeform";
 import NewPasswordForm from "../components/newpassword";
 import { useAuth } from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
+
 const ForgotPassword = () => {
   const [showCodeForm, setShowCodeForm] = React.useState(false);
-  const [useremail, setuserEmail] = React.useState("");
-  const [nameuser, setNameUser] = React.useState("");
   const [showNewPasswordForm, setShowNewPasswordForm] = React.useState(false);
-  const [verifitoken, setVerifitoken] = React.useState("");
+  const [userEmail, setUserEmail] = React.useState("");
+  const [userName, setUserName] = React.useState("");
+  const [userId, setUserId] = React.useState(null);
+  const [code, setCode] = React.useState("");
   const navigate = useNavigate();
-  const { forgotPassword,verificationOtp, resetPassword } = useAuth();
-  
+
+  const { forgotPassword, verificationOtp, resetPassword } = useAuth();
+
+  // Gửi yêu cầu lấy mã xác nhận
   const handleSubmit = async ({ username, email }) => {
-    console.log("Send reset to:", { username, email });
-
     try {
-      const response = await forgotPassword({ username, email });
-
-      if (response) { // Giả sử API trả về success: true
-        setShowCodeForm(true);
-        setuserEmail(email);
-        setNameUser(username);
-        console.log(response.message);
-        toast.success("Send OTP successfully");
-      } else {
-        console.log("Failed to send OTP:", response?.message || "Unknown error");
-        toast.error("Failed to send OTP");
-      }
+      const res = await forgotPassword({ ten: username, email });
+      toast.success(res.message || "Gửi mã xác nhận thành công!");
+      setUserEmail(email);
+      setUserName(username);
+      setShowCodeForm(true);
     } catch (error) {
-      console.error("Error in forgotPassword:", error);
-      toast.error("Error in forgotPassword");
+      toast.error(error.response?.data?.message || "Lỗi khi gửi mã xác nhận");
     }
   };
+
+  // Xác minh mã xác nhận
+  const handleCodeSubmit = async ({ code }) => {
+    try {
+      const res = await verificationOtp({ email: userEmail, code });
+      if (res.userId) {
+        toast.success(res.message || "Mã xác nhận hợp lệ!");
+        setUserId(res.userId);
+        setCode(code);
+        setShowNewPasswordForm(true);
+      } else {
+        toast.error("Mã xác nhận không hợp lệ!");
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Lỗi xác minh mã!");
+    }
+  };
+
+  // Gửi lại mã xác nhận
   const handleResend = async () => {
     try {
-      console.log("Send reset to:", { nameuser, useremail });
-      const response = await forgotPassword({ username:nameuser, email:useremail });
+      await forgotPassword({ ten: userName, email: userEmail });
+      toast.success("Gửi lại mã xác nhận thành công!");
+    } catch {
+      toast.error("Không thể gửi lại mã xác nhận");
+    }
+  };
 
-      if (response.code===1000) { // Giả sử API trả về success: true
-        setShowCodeForm(true);
-        setShowNewPasswordForm(false);
-        console.log(response.message);
-        toast.success("Resend OTP successfully");
-      } else {
-        console.log("Failed to send OTP:", response?.message || "Unknown error");
-        toast.error("Failed to send OTP");
-      }
+  // Đặt lại mật khẩu mới
+  const handleNewPasswordSubmit = async ({ newPassword }) => {
+    try {
+      const res = await resetPassword({
+        userId,
+        code,
+        newPassword,
+      });
+      toast.success(res.message || "Đặt lại mật khẩu thành công!");
+      setTimeout(() => navigate(ENDPOINTS.AUTH.LOGIN), 1500);
     } catch (error) {
-      console.error("Error in forgotPassword:", error);
-      toast.error("Error in forgotPassword");
+      toast.error(error.response?.data?.message || "Lỗi khi đặt lại mật khẩu");
     }
   };
-  const handleCodeSubmit = async (code) => {
-  console.log("Code submitted:", code.code);
-
-  try {
-    const response = await verificationOtp({ otp: code.code });
-
-    if (response && response.verificationToken) {
-      setVerifitoken(response.verificationToken);
-      setShowNewPasswordForm(true);
-      console.log("OTP verified successfully!");
-      toast.success("OTP verified successfully!");
-    } else {
-      console.warn("OTP verification failed:", response?.message || "Unknown error");
-      toast.error("OTP verification failed");
-    }
-  } catch (error) {
-    toast.error("Error verifying OTP");
-    console.error("Error verifying OTP:", error);
-  }
-};
- 
-const handleNewPasswordSubmit = async (newPasswordObj) => {
-  console.log("New password submitted:", newPasswordObj);
-  setShowCodeForm(false);
-  const actualPassword = newPasswordObj.newPassword;
-
-  const payload = {
-    username: nameuser,
-    newPassword: actualPassword,
-    token: verifitoken,
-  };
-
-  try {
-    const response = await resetPassword(payload);
-
-    if (response) {
-      toast.success("Reset password successfully");
-      setTimeout(() => {
-        
-        navigate(ENDPOINTS.AUTH.LOGIN);
-      }, 1500);
-      
-    } else {
-      console.warn("Reset failed:", response?.message || "Unknown");
-    }
-  } catch (error) {
-    console.error("Reset password error:", error);
-    toast.error("Reset password error");
-  }
-};
 
   return (
-    <div className=" flex flex-col bg-white">
-      {/* Header background */}
-      <div>
-      <img
-                  className="w-full h-[462px] top-0 left-0"
-                  alt="Image"
-                  src="https://c.animaapp.com/bt39k2cp/img/image.png"
-                />
-        {/* Back button */}
-        <Link to="/login">
-          <div className="absolute top-6 left-6 w-10 h-10 bg-white rounded-full flex items-center justify-center rotate-90 shadow">
-            <img
-              src="https://c.animaapp.com/bt39k2cp/img/polygon-4.svg"
-              alt="Back"
-              className="w-4 h-4 -rotate-90"
-            />
-          </div>
-        </Link>
-
-        {/* Welcome text */}
-        <div className="absolute top-14 left-1/2 transform -translate-x-1/2 text-center text-white">
-          <h1 className="text-[64px] font-bold">Welcome!</h1>
-          <p className="mt-2 max-w-md text-[20px]">
-            Enter your registered username and email to receive a verification code from the system.
-Once verified, you&apos;ll be able to reset your password quickly and securely.
-          </p>
-        </div>
+    <div className="min-h-screen bg-lozo-dark relative overflow-hidden">
+      {/* Nền gradient */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-14 right-48 w-72 h-72 rounded-full opacity-80 blur-[30px] bg-gradient-to-b from-lozo-purple via-transparent to-transparent"></div>
       </div>
 
-      {/* Form container */}
-      <div className="relative flex justify-center -mt-24 px-4">
-        <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 pt-16">
-          {/* Icon */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <img
-              src="https://c.animaapp.com/bt39k2cp/img/blood-donation-icon-png-4@2x.png"
-              alt="Logo"
-              className="w-20 h-20 rounded-full bg-white p-1 shadow"
-            />
-          </div>
-
-          <h2 className="text-center text-red-700 text-xl font-bold mb-6">
-            Forget password
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
+        <div className="border-4 border-lozo-purple rounded-3xl p-8 lg:p-12 bg-lozo-dark bg-opacity-60 backdrop-blur-md w-full max-w-lg">
+          <h2 className="text-white text-4xl font-bank-gothic text-center mb-8 tracking-wider">
+            Reset Password
           </h2>
-          {showNewPasswordForm ? <NewPasswordForm onSubmit={handleNewPasswordSubmit} /> : (showCodeForm ? (
-            <CodeForm email={useremail} onSubmit={handleCodeSubmit} onResend={handleResend} />
+
+          {showNewPasswordForm ? (
+            <NewPasswordForm onSubmit={handleNewPasswordSubmit} />
+          ) : showCodeForm ? (
+            <CodeForm
+              email={userEmail}
+              onSubmit={handleCodeSubmit}
+              onResend={handleResend}
+            />
           ) : (
             <ForgotPasswordForm onSubmit={handleSubmit} />
-          ))}
+          )}
         </div>
       </div>
     </div>
