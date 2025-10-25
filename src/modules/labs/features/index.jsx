@@ -17,6 +17,7 @@ import {
   Activity,
 } from "lucide-react";
 import Header from "../../../components/Header/Header";
+import { Link } from "react-router-dom";
 
 const iconMap = {
   Wifi,
@@ -249,10 +250,13 @@ const Labs = () => {
                     <span>Hoàn thành</span>
                   </button>
                 ) : (
-                  <button className="w-full bg-gradient-to-r from-lozo-dark to-lozo-secondary text-white py-3 rounded-[10px] font-semibold flex items-center justify-center space-x-2">
+                  <Link
+                    to={`/labs/${lab.id}`}
+                    className="w-full bg-gradient-to-r from-lozo-dark to-lozo-secondary text-white py-3 rounded-[10px] font-semibold flex items-center justify-center space-x-2"
+                  >
                     <Play className="w-4 h-4" />
                     <span>Tiếp tục</span>
-                  </button>
+                  </Link>
                 )}
               </div>
             );

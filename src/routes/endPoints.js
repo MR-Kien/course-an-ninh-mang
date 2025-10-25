@@ -27,5 +27,9 @@ export const ENDPOINTS = Object.freeze({
     CHATBOT: "/user/chatbot",
     // COURSES: "/user/courses",
     ABOUT: "/user/about",
+    ADMINLAB: "/admin/lab-admin",
+    ADMINCTF: "/admin/ctf-admin",
+    CTFDETAIL: "/ctf/:id",
+    LABDETAIL: "/lab/:id",
   },
 });

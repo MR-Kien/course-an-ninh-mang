@@ -185,7 +185,7 @@ import {
 } from "lucide-react";
 import { useRef, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ENDPOINTS } from "../../../../routes/endPoints";
 import CourseTemplate from "../../../../assets/CourseTemplate.pdf";
 
@@ -299,10 +299,20 @@ export default function Sidebar({
                 .
               </p>
             </div>
-            <button className="w-full flex items-center gap-3 p-3 rounded-[12px] glass hover:bg-slate-700 bg-slate-700/50">
+            <Link
+              to={ENDPOINTS.USER.ADMINLAB}
+              className="w-full flex items-center gap-3 p-3 rounded-[12px] glass hover:bg-slate-700 bg-slate-700/50"
+            >
               <BarChart3 className="w-4 h-4 text-white" />
-              <span className="text-sm text-white">Xem báo cáo</span>
-            </button>
+              <span className="text-sm text-white">Quản lý lab</span>
+            </Link>
+            <Link
+              to={ENDPOINTS.USER.ADMINCTF}
+              className="w-full flex items-center gap-3 p-3 rounded-[12px] glass hover:bg-slate-700 bg-slate-700/50"
+            >
+              <BarChart3 className="w-4 h-4 text-white" />
+              <span className="text-sm text-white">Quản lý ctf</span>
+            </Link>
           </div>
         </div>
 

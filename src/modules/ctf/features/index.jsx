@@ -24,6 +24,8 @@ import {
   RefreshCw,
 } from "lucide-react";
 import Header from "../../../components/Header/Header";
+import { ENDPOINTS } from "../../../routes/endPoints";
+import { Link } from "react-router-dom";
 
 const CTF = () => {
   const [ctfData, setCtfData] = useState(null);
@@ -336,9 +338,12 @@ const CTF = () => {
                           <Lock className="w-4 h-4" /> Đã khóa
                         </button>
                       ) : (
-                        <button className="px-6 py-2 bg-gradient-to-r from-lozo-dark to-lozo-secondary text-white rounded-[10px] flex items-center gap-2">
+                        <Link
+                          to={`/ctf/${ch.id}`}
+                          className="px-6 py-2 bg-gradient-to-r from-lozo-dark to-lozo-secondary text-white rounded-[10px] flex items-center gap-2"
+                        >
                           <Play className="w-4 h-4" /> Bắt đầu
-                        </button>
+                        </Link>
                       )}
                     </div>
                   </div>

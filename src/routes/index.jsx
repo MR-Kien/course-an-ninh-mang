@@ -195,6 +195,40 @@ const aboutPage = {
   Layout: LandingLayout,
 };
 
+const courseLabAdminPage = {
+  path: ENDPOINTS.USER.ADMINLAB,
+  component: lazy(() =>
+    delayRoute()(import("../modules/lab_admin/features/index"))
+  ),
+  title: `Lab Admin | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const labDetailPage = {
+  path: ENDPOINTS.USER.LABDETAIL,
+  component: lazy(() =>
+    delayRoute()(import("../modules/LabDetail/features/index"))
+  ),
+  title: `Lab Detail | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const ctfDetailPage = {
+  path: ENDPOINTS.USER.CTFDETAIL,
+  component: lazy(() =>
+    delayRoute()(import("../modules/ctfDetail/features/index"))
+  ),
+  title: `CFT Detail | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+
+const courseCTFAdminPage = {
+  path: ENDPOINTS.USER.ADMINCTF,
+  component: lazy(() =>
+    delayRoute()(import("../modules/ctf_admin/features/index"))
+  ),
+  title: `CFT Admin | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+
 // Các trang khác sẽ được thêm vào đây
 export const privateRouteData = [];
 export const publicRoutesData = [
@@ -220,6 +254,10 @@ export const publicRoutesData = [
   aboutPage,
   signinpage,
   signinSuccessPage,
+  courseLabAdminPage,
+  labDetailPage,
+  courseCTFAdminPage,
+  ctfDetailPage,
 ];
 
 // Improved route rendering function

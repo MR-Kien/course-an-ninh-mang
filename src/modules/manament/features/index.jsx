@@ -258,24 +258,7 @@ export default function Index() {
                 key={course.id}
                 {...course}
                 onClick={() =>
-                  navigate(ENDPOINTS.USER.PAYMENT, {
-                    state: {
-                      title: course.title,
-                      price:
-                        course.level === "basic"
-                          ? 89000
-                          : course.level === "intermediate"
-                            ? 199000
-                            : 999000,
-                      period:
-                        course.level === "basic"
-                          ? "1 tháng"
-                          : course.level === "intermediate"
-                            ? "3 tháng"
-                            : "1 năm",
-                      features: course.tags,
-                    },
-                  })
+                  navigate(ENDPOINTS.USER.DEMO.replace(":id", course.id))
                 }
               />
             ))}
