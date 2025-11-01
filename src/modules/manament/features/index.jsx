@@ -258,7 +258,7 @@ export default function Index() {
                 key={course.id}
                 {...course}
                 onClick={() =>
-                  navigate(ENDPOINTS.USER.DEMO.replace(":id", course.id))
+                  navigate(ENDPOINTS.USER.ADMINCOURSE.replace(":id", course.id))
                 }
               />
             ))}

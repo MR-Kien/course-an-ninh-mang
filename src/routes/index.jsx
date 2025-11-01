@@ -228,6 +228,22 @@ const courseCTFAdminPage = {
   title: `CFT Admin | ${WEB_NAME}`,
   Layout: LandingLayout,
 };
+const coursesAdminPage = {
+  path: ENDPOINTS.USER.ADMINCOURSE,
+  component: lazy(() =>
+    delayRoute()(import("../modules/admincourse/features/index"))
+  ),
+  title: `Course Admin | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
+const paymentSuccessPage = {
+  path: ENDPOINTS.USER.PAYMENTSUCCESS,
+  component: lazy(() =>
+    delayRoute()(import("../modules/paymentsuccess/features/index"))
+  ),
+  title: `Payment Success | ${WEB_NAME}`,
+  Layout: LandingLayout,
+};
 
 // Các trang khác sẽ được thêm vào đây
 export const privateRouteData = [];
@@ -258,6 +274,8 @@ export const publicRoutesData = [
   labDetailPage,
   courseCTFAdminPage,
   ctfDetailPage,
+  coursesAdminPage,
+  paymentSuccessPage,
 ];
 
 // Improved route rendering function

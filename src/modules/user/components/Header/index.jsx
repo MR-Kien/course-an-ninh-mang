@@ -2,6 +2,10 @@ import { Search, Bell, Settings, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ENDPOINTS } from "../../../../routes/endPoints";
 export function Header() {
+  const username =
+    JSON.parse(localStorage.getItem("user"))?.name ||
+    localStorage.getItem("username") ||
+    "User";
   return (
     <header className="bg-slate-700 border-b border-slate-600 shadow-sm">
       <div className="px-6 py-4">
@@ -10,7 +14,10 @@ export function Header() {
           <div className="flex items-center space-x-6">
             {/* Logo */}
             <div className="flex items-center">
-              <Link to={ENDPOINTS.INDEX} className="flex items-center">
+              <Link
+                to={ENDPOINTS.USER.USERDASHBOARD}
+                className="flex items-center"
+              >
                 <div className="w-8 h-8 mr-3">
                   <Shield className="w-8 h-8 text-[#a10ea4] stroke-2" />
                 </div>
@@ -84,7 +91,7 @@ export function Header() {
                   />
                 </svg>
               </div>
-              <span className="text-white text-sm">User</span>
+              <span className="text-white text-sm">{username}</span>
             </div>
           </div>
         </div>

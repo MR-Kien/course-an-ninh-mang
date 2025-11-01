@@ -9,6 +9,7 @@ export const ENDPOINTS = Object.freeze({
   USER: {
     DASHBOARD: "/user/dashboard",
     DEMO: "/user/demo/:id",
+    ADMINCOURSE: "/admin/course/:id",
     // DEMO: (id) => `/user/demo/${id}`,
     OOPS: "/user/oops",
     MANAMENT: "/admin/manament",
@@ -30,6 +31,7 @@ export const ENDPOINTS = Object.freeze({
     ADMINLAB: "/admin/lab-admin",
     ADMINCTF: "/admin/ctf-admin",
     CTFDETAIL: "/ctf/:id",
-    LABDETAIL: "/lab/:id",
+    LABDETAIL: "/labs/:id",
+    PAYMENTSUCCESS: "/payment/return",
   },
 });

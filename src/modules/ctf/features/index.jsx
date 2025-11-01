@@ -278,7 +278,6 @@ const CTF = () => {
             ctfData?.challenges?.map((ch) => {
               const Icon = iconMap[ch.icon] || Shield;
               const isCompleted = ch.status === "completed";
-              const isLocked = ch.status === "locked";
               return (
                 <div
                   key={ch.id}
@@ -329,13 +328,6 @@ const CTF = () => {
                       {isCompleted ? (
                         <button className="px-6 py-2 bg-green-700/30 text-green-400 rounded-[10px] flex items-center gap-2">
                           <CheckCircle className="w-4 h-4" /> Hoàn thành
-                        </button>
-                      ) : isLocked ? (
-                        <button
-                          className="px-6 py-2 bg-gray-700/30 text-gray-400 rounded-[10px] flex items-center gap-2"
-                          disabled
-                        >
-                          <Lock className="w-4 h-4" /> Đã khóa
                         </button>
                       ) : (
                         <Link
